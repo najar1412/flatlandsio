@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,900');
+body {
+  margin: 0;
+  font-family: 'Maven Pro', sans-serif;
+  }
+.header {
+  padding-bottom: 30px;
+  padding-top: 40px;
+  padding-left: 10%;
+  padding-right: 5%;
+}
+.header a {
+  color: black;
+  text-decoration: none;
+}
+.title {
+  font-size: 50px;
+}
+.header-nav {
+  color: slategray;
+  word-spacing: 30px;
+  font-size: 15px;
+}
+.header-nav a {
+  color: slategray;
+  text-decoration: none;
+}
+.header-nav a:hover {
+  color: black;
+  border-width: 1px;
+  border-bottom-style: dotted;
+}
+.sub-nav {
+  padding-left: 10%;
+  color: slategray;
+  word-spacing: 30px;
+  font-size: 30px;
+}
+.sub-nav a {
+  color: slategray;
+  text-decoration: none;
+}
+.sub-nav a:hover {
+  color: black;
+  border-width: 1px;
+  border-bottom-style: dotted;
+}
+.main-content {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.section-head {
+  color: rgba(0, 92, 173, 0.15);
+  height: 50px;
+}
+.section-head h4 {
+  font-weight: bold;
+  font-size: 100px;
+}
+.blog-post {
+  padding-left: 10%;
+  padding-right: 5%;
+  padding-bottom: 20px;
+}
+.blog-post small {
+  position: relative;
+  top: 10px;
+  color: lightslategray;
+  font-size: 11px;
+  font-style: italic;
+}
+.blog-post-strap {
+  text-indent: 50px;
+  color: lightslategray;
+  font-style: italic;
+}
+.blog-post h4 {
+  color: darkslategray;
+}
+.blog-post a {
+  color: rgb(168, 45, 0);
+  text-decoration: none;
+  border-width: 1px;
+  border-bottom-style: dotted;
+}
+.blog-post a:hover {
+  color: rgb(255, 72, 0);
+  border-width: 1px;
+  border-bottom-style: dotted;
+}
+.footer {
+  background-color: slategray;
+  color: white;
+  font-size: 15px;
+  border-width: 2px;
+  border-top-style: dotted;
+}
+.footer-detail {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+.footer-detail a {
+  color: white;
+  text-decoration: none;
+}
+.footer-detail a:hover {
+  border-width: 1px;
+  border-bottom-style: dotted;
+}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="title">{{ product.title }}</div>
+
+<div class="blog-post">
+    {{ product.content }}
+    <div>
+        <small>{{ product.type }}, {{ product.author }}</small>
+    </div>
+    <div>
+        <small>
+            {% for tag in product.tags %}
+            <a href="/tag/{{tag}}">{{tag}}</a>, 
+            {% endfor %}
+        </small>
+    </div>
+</div>
+
+{% endblock %}

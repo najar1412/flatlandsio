@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="sub-nav">
+    {% for type in software_types %}
+        <a href="#{{ type }}">{{ type }}</a>
+    {% endfor %}
+</div>
+
+{% for type in software_types %}
+<div class="section-head"><h4>{{ type }}</h4></div>
+<a name="{{ type }}"></a>
+    {% for code, data in software.items() %}
+        {% if data.type == type %}
+            <div class="blog-post">
+                <small>{{ data.type }}</small>
+                <h4><a href="/software/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
+                <div class="blog-post-strap">{{data.strap}}</div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="sub-nav">Posts</div>
+<br>
+<div class="blog-post">
+    <form class="form-inline" action="/blog/new" method="POST">
+        <div class="form-group">
+            <label for="newPost"></label>
+            <input type="text" readonly class="form-control-plaintext" id="newPost" value="New Post">
+        </div>
+        <div class="form-group mx-sm-3">
+            <input type="input" class="form-control" name="inputTitle" id="inputTitle" placeholder="Title">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+{% for year in years %}
+<div class="section-head"><h4>{{ year }}</h4></div>
+<br>
+<div class="blog-post">
+<table class="table table-hover table-sm">
+    <thead>
+      <tr>
+        <th style="width:5%" scope="col">#</th>
+        <th style="width:45%" scope="col">Title</th>
+        <th style="width:25%" scope="col">Tags</th>
+        <th style="width:10%" scope="col">Published</th>
+        <th style="width:15%" scope="col">Tools</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for code, data in posts.items() %}
+        {% if data.pub_date.endswith(year) %}
+              <tr>
+                <th scope="row">{{data.id}}</th>
+                <td><a href="/blog/{{data.title.replace(' ', '-')}}">{{data.title}}</a></td>
+                <td>{{data.tags}}</td>
+                <td>{{data.published}}</td>
+                <td>
+                    <a href="/blog/edit/{{data.title.replace(' ', '-')}}">[E]</a>
+                    <a href="/blog/publish/{{data.title.replace(' ', '-')}}">[P]</a>
+                    <a href="/blog/delete/{{data.title.replace(' ', '-')}}">[D]</a>
+                </td>
+              </tr>
+        {% endif %}
+    {% endfor %}
+</tbody>
+</table>
+</div>
+{% endfor %}
+
+
+
+<div class="sub-nav">Software</div>
+
+{% endblock %}
