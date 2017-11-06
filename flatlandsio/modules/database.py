@@ -3,6 +3,7 @@ import datetime
 
 import app
 
+
 def to_json(results):
     result = {}
     item = {}
@@ -11,6 +12,7 @@ def to_json(results):
         for k, v in row.__dict__.items():
             if not k.startswith('_') and k != 'id':
                 item[k] = v
+
         result[count] = item
         count += 1
         item = {}
@@ -20,6 +22,7 @@ def to_json(results):
 
 def date_format():
     datetime_now = datetime.datetime.now()
+
     return f'{datetime_now.day}.{datetime_now.month}.{datetime_now.year}'
 
 
@@ -47,7 +50,24 @@ def delete_markdown_file(content):
 
     try:
         os.remove(os.path.join(post_dir, f'{content}.md'))
+
         return True
+
+    except:
+        return False
+
+
+def rename_markdown_file(src, dst):
+    post_dir = os.path.join(app.root_dir, 'posts')
+
+    try:
+        os.rename(
+            os.path.join(post_dir, src),
+            os.path.join(post_dir, dst)
+            )
+
+        return True
+
     except:
         return False
 
@@ -59,3 +79,31 @@ def get_post_by_tag(tag, posts):
             output[code] = data
 
     return output
+
+
+def form_to_dict(form_request):
+    output = {}
+    for k, v in form_request.items():
+        if v != '':
+            output[k] = v
+
+        else:
+            output[k] = None
+
+    return output
+
+
+def edit_post(form, title):
+    get_post = app.Post.query.filter_by(title=title.replace('-', ' ')).first()
+
+    if form['inputTitle']:
+        get_post.title = form['inputTitle']
+        get_post.content = f"{form['inputTitle'].replace(' ', '-')}.md"
+
+        rename_file = rename_markdown_file(f'{title}.md', f'{form["inputTitle"].replace(" ", "-")}.md')
+
+    app.db.session.add(get_post)
+    app.db.session.commit()
+
+    return True
+    

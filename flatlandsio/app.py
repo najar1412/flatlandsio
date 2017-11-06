@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 import modules.data as data
@@ -98,13 +98,28 @@ def post_new():
     return render_template('settings.html', posts=posts, years=years)
 
 
-@app.route('/blog/edit/<title>')
+@app.route('/blog/edit/<title>', methods=["GET", "POST"])
 def post_edit(title):
-    title = title.replace('-', ' ')
-    post = modules.database.to_json((Post.query.filter_by(title=title).first(),))[1]
-    post['content'] = modules.database.markdown_to_string(post['content'])
+    if request.method == 'GET':
+        title = title.replace('-', ' ')
+        post = modules.database.to_json((Post.query.filter_by(title=title).first(),))[1]
+        post['content'] = modules.database.markdown_to_string(post['content'])
 
-    return render_template('post_edit.html', post=post)
+        return render_template('post_edit.html', post=post)
+
+    if request.method == 'POST':
+        form = modules.database.form_to_dict(request.form)
+
+        modules.database.edit_post(form, title)
+        
+        title = form['inputTitle'].replace(' ', '-')
+        print('here maybe')
+        # post = modules.database.to_json((Post.query.filter_by(title=title).first(),))[1]
+        # post['content'] = modules.database.markdown_to_string(post['content'])
+
+        print(title)
+        print('returning from post')
+        return redirect(f'/blog/{title}')
 
 
 @app.route('/blog/publish/<title>')

@@ -5,6 +5,56 @@
 
 {{post}}
 
+<hr>
+
+
+<form action="/blog/edit/{{post.title.replace(' ', '-')}}" method="POST">
+
+    <div class="form-group">
+        <label for="inputTitle">Title</label>
+        <input type="text" class="form-control" name="inputTitle" id="inputTitle">
+    </div>
+
+    <div class="form-group">
+        <label for="inputPubDate">Publish Date</label>
+        <input type="text" class="form-control" name="inputPubDate" id="inputPubDate">
+    </div>
+
+    <div class="form-group">
+        <label for="inputStrap">Strap</label>
+        <input type="text" class="form-control" name="inputStrap" id="inputStrap">
+    </div>
+
+    <div class="form-group">
+        <label for="textareaContent">Content</label>
+        <textarea class="form-control" name="textareaContent" id="textareaContent" rows="5"></textarea>
+        </div>
+
+    <div class="form-group">
+      <label for="inputTags">Tags</label>
+      <input type="text" class="form-control" name="inputTags" id="inputTags">
+    </div>
+
+    <div class="form-group">
+      <label for="selectPublish">Publish</label>
+      <select class="form-control" name="selectPublish" id="selectPublish">
+        <option>publish</option>
+        <option>Unpublish</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+    <label for="selectAuthor">Author</label>
+    <select class="form-control" name="selectAuthor" id="selectAuthor">
+        <option>Rory Jarrel</option>
+    </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+  </form>
+
+
 
 
 {% endblock %}
