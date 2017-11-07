@@ -2,7 +2,6 @@ import os
 
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
-import markdown
 
 import modules.data as data
 import modules.database
@@ -44,17 +43,6 @@ class Software(db.Model):
 db.create_all()
 
 
-# helpers
-def create_markdown(post_name, content):
-    root_dir = os.path.dirname(os.path.abspath(__file__))
-    post_dir = os.path.join(root_dir, 'posts')
-
-    with open(os.path.join(post_dir, f'{post_name}.md'), 'w') as f: 
-        f.write(str(content)) 
-
-    return f'{post_name}.md'
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -71,15 +59,9 @@ def blog():
 @app.route('/blog/<title>')
 def post(title):
     title = title.replace('-', ' ')
+
     blog_post = modules.database.to_json((Post.query.filter_by(title=title).first(),))[1]
-
-    post_dir = os.path.join(root_dir, 'posts')
-
-    with open(os.path.join(post_dir, f"{title.replace(' ', '-')}.md")) as f: 
-        text = f.read()
-        html = markdown.markdown(text, extensions=['markdown.extensions.fenced_code'])
-
-    blog_post['content'] = html
+    blog_post['content'] = modules.database.markdown_to_html(title)
 
     return render_template('blog_post.html', post=blog_post)
 
@@ -88,9 +70,9 @@ def post(title):
 def post_new():
     if request.method == 'POST':
         form = request.form
-        
         title = form['inputTitle'].replace(' ', '-')
-        article = create_markdown(title, '')
+        article = modules.database.create_markdown(title, '')
+
         admin = Post(
             title=form['inputTitle'], author='rory jarrel', 
             published='False', content=article, 
@@ -111,16 +93,14 @@ def post_edit(title):
     if request.method == 'GET':
         title = title.replace('-', ' ')
         post = modules.database.to_json((Post.query.filter_by(title=title).first(),))[1]
-        post['content'] = modules.database.markdown_to_string(post['content'])
+        post['content'] = modules.database.markdown_to_html(post['title'])
 
         return render_template('post_edit.html', post=post)
 
 
     if request.method == 'POST':
         form = modules.database.form_to_dict(request.form)
-
         modules.database.edit_post(form, title)
-        
         title = form['inputTitle'].replace(' ', '-')
 
         return redirect(f'/blog/{title}')
@@ -128,21 +108,15 @@ def post_edit(title):
 
 @app.route('/blog/publish/<title>')
 def post_publish(title):
-    print('enter publish')
-    # get post
     title = title.replace('-', ' ')
     get_post = Post.query.filter_by(title=title).first()
-    print(get_post)
-    # check wether its pubished or not
+
     if get_post.published == 'True':
-        print('its true')
         get_post.published = 'False'
 
     else:
-        print('its false')
         get_post.published = 'True'
 
-    # db.session.append(get_post)
     db.session.commit()
 
     return redirect('/settings')
@@ -150,8 +124,8 @@ def post_publish(title):
 
 @app.route('/blog/delete/<title>')
 def post_delete(title):
-    markdown = modules.database.delete_markdown_file(title)
-    if markdown:
+    del_markdown = modules.database.delete_markdown_file(title)
+    if del_markdown:
         title = title.replace('-', ' ')
         get_post = Post.query.filter_by(title=title).first()
         db.session.delete(get_post)

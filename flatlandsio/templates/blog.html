@@ -9,6 +9,14 @@
                 <small>{{data.pub_date}}</small>
                 <h4><a href="/blog/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
                 <div class="blog-post-strap">{{data.strap}}</div>
+                <div>
+                    <small>
+                        tags: 
+                        {% for tag in data.tags.split(' ') %}
+                        <a href="/tag/{{tag}}">{{tag}}</a>, 
+                        {% endfor %}
+                    </small>
+                </div>
             </div>
         {% endif %}
     {% endfor %}

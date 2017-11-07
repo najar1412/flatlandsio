@@ -46,9 +46,9 @@ $ ssh-keygen
 
 This generates a private key, id_rsa, and a public key, id_rsa.pub, in the .ssh directory.
 
-##### Copy the Public Key
+#### Copy the Public Key
 
-###### Option 1: Use ssh-copy-id
+##### Option 1: Use ssh-copy-id
 
 If your local machine has the ssh-copy-id script installed, you can use it to install your public key to any user that you have login credentials for.
 
@@ -56,7 +56,7 @@ If your local machine has the ssh-copy-id script installed, you can use it to in
 $ ssh-copy-id deploy@your_server_ip
 ```
 
-###### Option 2: Manually Install the Key
+##### Option 2: Manually Install the Key
 
 Assuming you generated an SSH key pair using the previous step, use the following command at the terminal of your local machine to print your public key (id_rsa.pub):
 

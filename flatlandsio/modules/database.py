@@ -1,6 +1,8 @@
 import os
 import datetime
 
+import markdown
+
 import app
 
 
@@ -33,6 +35,25 @@ def get_post_years(posts=None):
         years.append(year)
 
     return sorted(list(set(years)), reverse=True)
+
+
+def create_markdown(post_name, content):
+    post_dir = os.path.join(app.root_dir, 'posts')
+
+    with open(os.path.join(post_dir, f'{post_name}.md'), 'w') as f: 
+        f.write(str(content)) 
+
+    return f'{post_name}.md'
+
+
+def markdown_to_html(title):
+    post_dir = os.path.join(app.root_dir, 'posts')
+
+    with open(os.path.join(post_dir, f"{title.replace(' ', '-')}.md")) as f: 
+        text = f.read()
+        html = markdown.markdown(text, extensions=['markdown.extensions.fenced_code'])
+
+    return html
 
 
 def markdown_to_string(markdown_file):
