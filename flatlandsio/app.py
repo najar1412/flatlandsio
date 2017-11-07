@@ -2,6 +2,7 @@ import os
 
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
+import markdown
 
 import modules.data as data
 import modules.database
@@ -71,7 +72,14 @@ def blog():
 def post(title):
     title = title.replace('-', ' ')
     blog_post = modules.database.to_json((Post.query.filter_by(title=title).first(),))[1]
-    blog_post['content'] = modules.database.markdown_to_string(blog_post['content'])
+
+    post_dir = os.path.join(root_dir, 'posts')
+
+    with open(os.path.join(post_dir, f"{title.replace(' ', '-')}.md")) as f: 
+        text = f.read()
+        html = markdown.markdown(text, extensions=['markdown.extensions.fenced_code'])
+
+    blog_post['content'] = html
 
     return render_template('blog_post.html', post=blog_post)
 

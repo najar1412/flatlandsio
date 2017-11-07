@@ -3,6 +3,13 @@ body {
   margin: 0;
   font-family: 'Maven Pro', sans-serif;
   }
+pre {
+  color: rgb(168, 45, 0);
+  background-color: rgb(236, 236, 236);
+  border-radius: 10px;
+  padding: 10px;
+  padding-left: 20px;
+}
 .header {
   padding-bottom: 30px;
   padding-top: 40px;
