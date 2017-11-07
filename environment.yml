@@ -20,7 +20,9 @@ dependencies:
   - gunicorn==19.7.1
   - itsdangerous==0.24
   - jinja2==2.9.6
+  - markdown==2.6.9
   - markupsafe==1.0
   - sqlalchemy==1.1.15
   - werkzeug==0.12.2
+prefix: /home/deploy/miniconda3/envs/flatlandsio_env
 
