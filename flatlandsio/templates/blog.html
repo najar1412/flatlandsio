@@ -4,7 +4,7 @@
 {% for year in years %}
 <div class="section-head"><h4>{{ year }}</h4></div>
     {% for code, data in posts.items() %}
-        {% if data.pub_date.endswith(year) %}
+        {% if data.pub_date.endswith(year) and data.published != 'False' %}
             <div class="blog-post">
                 <small>{{data.pub_date}}</small>
                 <h4><a href="/blog/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>

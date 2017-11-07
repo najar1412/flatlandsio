@@ -107,27 +107,37 @@ def post_edit(title):
 
         return render_template('post_edit.html', post=post)
 
+
     if request.method == 'POST':
         form = modules.database.form_to_dict(request.form)
 
         modules.database.edit_post(form, title)
         
         title = form['inputTitle'].replace(' ', '-')
-        print('here maybe')
-        # post = modules.database.to_json((Post.query.filter_by(title=title).first(),))[1]
-        # post['content'] = modules.database.markdown_to_string(post['content'])
 
-        print(title)
-        print('returning from post')
         return redirect(f'/blog/{title}')
 
 
 @app.route('/blog/publish/<title>')
 def post_publish(title):
-    posts = modules.database.to_json(Post.query.all())
-    years = modules.database.get_post_years(posts)
+    print('enter publish')
+    # get post
+    title = title.replace('-', ' ')
+    get_post = Post.query.filter_by(title=title).first()
+    print(get_post)
+    # check wether its pubished or not
+    if get_post.published == 'True':
+        print('its true')
+        get_post.published = 'False'
 
-    return render_template('settings.html', posts=posts, years=years)
+    else:
+        print('its false')
+        get_post.published = 'True'
+
+    # db.session.append(get_post)
+    db.session.commit()
+
+    return redirect('/settings')
 
 
 @app.route('/blog/delete/<title>')

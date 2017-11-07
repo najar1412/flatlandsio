@@ -34,16 +34,20 @@
     <tbody>
     {% for code, data in posts.items() %}
         {% if data.pub_date.endswith(year) %}
+            {% if data.published == 'True' %}
               <tr>
-                <th scope="row">{{data.id}}</th>
-                <td><a href="/blog/{{data.title.replace(' ', '-')}}">{{data.title}}</a></td>
-                <td>{{data.tags}}</td>
-                <td>{{data.published}}</td>
-                <td>
-                    <a href="/blog/edit/{{data.title.replace(' ', '-')}}">[E]</a>
-                    <a href="/blog/publish/{{data.title.replace(' ', '-')}}">[P]</a>
-                    <a href="/blog/delete/{{data.title.replace(' ', '-')}}">[D]</a>
-                </td>
+            {% else %}
+              <tr class="table-danger">
+            {% endif %}
+                    <th scope="row">{{data.id}}</th>
+                    <td><a href="/blog/{{data.title.replace(' ', '-')}}">{{data.title}}</a></td>
+                    <td>{{data.tags}}</td>
+                    <td>{{data.published}}</td>
+                    <td>
+                        <a href="/blog/edit/{{data.title.replace(' ', '-')}}">[E]</a>
+                        <a href="/blog/publish/{{data.title.replace(' ', '-')}}">[P]</a>
+                        <a href="/blog/delete/{{data.title.replace(' ', '-')}}">[D]</a>
+                    </td>
               </tr>
         {% endif %}
     {% endfor %}
