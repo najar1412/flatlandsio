@@ -86,7 +86,7 @@ about = {
             },
             3: {
                 'title': 'whats the best way to contact you for possible work?',
-                'content': "my plate is pretty full currently, but room can always be made for interesting projects. the best place to enquire would be [here](mailto:)."
+                'content': "my plate is pretty full currently, but room can always be made for interesting projects. the best place to enquire would be hello@flatlands.io"
             },
         }
     },
