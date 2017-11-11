@@ -11,10 +11,10 @@ pre {
   padding-left: 20px;
 }
 .header {
-  padding-bottom: 30px;
+  padding-bottom: 15px;
   padding-top: 40px;
   padding-left: 10%;
-  padding-right: 5%;
+  padding-right: 10%;
 }
 .header a {
   color: black;
@@ -39,12 +39,12 @@ pre {
 }
 .sub-nav {
   padding-left: 10%;
-  color: slategray;
+  color: black;
   word-spacing: 30px;
-  font-size: 30px;
+  font-size: 15px;
 }
 .sub-nav a {
-  color: slategray;
+  color: black;
   text-decoration: none;
 }
 .sub-nav a:hover {
@@ -67,7 +67,7 @@ pre {
 .blog-post {
   padding-left: 10%;
   padding-right: 5%;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
 .blog-post small {
   position: relative;

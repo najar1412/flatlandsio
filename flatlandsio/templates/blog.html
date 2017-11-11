@@ -1,8 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="sub-nav">
+    {% for year in years %}
+        <a href="#{{ year }}">{{ year }}</a>
+    {% endfor %}
+</div>
+
+<hr>
+
+<p style="height: 20px;"></p>
+
 {% for year in years %}
-<div class="section-head"><h4>{{ year }}</h4></div>
+<a name="{{ year }}"></a><div class="section-head"><h4>{{ year }}</h4></div></a>
     {% for code, data in posts.items()|reverse %}
         {% if data.pub_date.endswith(year) and data.published != 'False' %}
             <div class="blog-post">
@@ -20,6 +30,7 @@
             </div>
         {% endif %}
     {% endfor %}
+    <div style="color: lightgray; text-align: center; word-spacing: 50px; font-size: 50px">· · ·</div>
 {% endfor %}
 
 {% endblock %}

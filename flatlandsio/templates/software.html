@@ -7,6 +7,10 @@
     {% endfor %}
 </div>
 
+<hr>
+
+<p style="height: 20px;"></p>
+
 {% for type in software_types %}
 <div class="section-head"><h4>{{ type }}</h4></div>
 <a name="{{ type }}"></a>
@@ -19,6 +23,7 @@
             </div>
         {% endif %}
     {% endfor %}
+    <div style="color: lightgray; text-align: center; word-spacing: 50px; font-size: 50px">· · ·</div>
 {% endfor %}
 
 {% endblock %}
