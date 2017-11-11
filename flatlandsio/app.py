@@ -45,7 +45,10 @@ db.create_all()
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    posts = modules.database.to_json(Post.query.all())
+    years = modules.database.get_post_years(posts)
+
+    return render_template('blog.html', posts=posts, years=years)
 
 
 @app.route('/blog')
