@@ -3,40 +3,50 @@ software = {
         'title': 'glance',
         'author': 'rory jarrel',
         'tags': ['library'],
-        'strap': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        'summary': 'solution to the mangement and sharing of 1000s of 3d assets across multiple offices.',
+        'tech': 'python, flask and aws.',
+        'code': 'http://github.com/example',
+        'goal': 'glance needed to able to serve visual assets including video, picture 3d geometry to various offices around the global for the production of visualisation renderings. The system needed to incorparate some machine learning to the tune of item detection in both stills and video.',
         'type': 'web'
     },
     2: {
         'title': 'gallery',
         'author': 'rory jarrel',
         'tags': ['photo'],
-        'strap': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        'summary': 'personally managed cloud photo galleries.',
+        'tech': 'python, flask, postgresql and aws',
+        'code': 'http://github.com/example',
+        'goal': 'This system is aimed at your everyday tourists. A simple system of managing hoilday snaps, that are simple to share with friends and family.',
         'type': 'web'
     },
-    2: {
+    3: {
         'title': 'rorender',
         'author': 'rory jarrel',
         'tags': ['backburner', 'vray'],
-        'strap': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        'summary': 'A cli tool to allow the user to quicky see which renders nodes are free and avalialbe for distrubuted rendering.',
+        'tech': 'python, cli',
+        'code': 'http://github.com/example',
+        'goal': 'A cli interface to various render managers within a farm. Tool comes complete with features to enabled/disable different types of render software as well as checking current and recently finished rendering information',
         'type': 'desktop'
     },
-    3: {
+    4: {
         'title': 'copy paste',
         'author': 'rory jarrel',
-        'tags': ['3ds max'],
-        'strap': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        'tags': ['3ds max', 'python', 'maxscript'],
+        'summary': 'Copy and paste 3d assets',
+        'tech': 'python, maxscript',
+        'code': 'http://github.com/example',
+        'goal': 'extending fucntionality of 3ds max with copy and paste between open 3ds max files.',
         'type': 'plugin'
     },
-    4: {
+    5: {
         'title': 'auto comp',
         'author': 'rory jarrel',
-        'tags': ['3ds max', 'vray'],
-        'strap': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        'tags': ['3ds max', 'vray', 'python', 'nuke'],
+        'summary': 'quick basic composition of render passes',
+        'tech': 'python, flask and aws.',
+        'code': 'http://github.com/example',
+        'goal': 'automates the compositing all standard vray passes, for quick visualisation within Nuke.',
         'type': 'plugin'
     },
 }

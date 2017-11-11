@@ -58,7 +58,7 @@ pre {
 }
 .section-head {
   color: rgba(0, 92, 173, 0.12);
-  height: 50px;
+  height: 35px;
 }
 .section-head h4 {
   font-weight: bold;
@@ -67,7 +67,7 @@ pre {
 .blog-post {
   padding-left: 10%;
   padding-right: 5%;
-  padding-bottom: 25px;
+  padding-bottom: 40px;
 }
 .blog-post small {
   position: relative;
@@ -85,10 +85,9 @@ pre {
   color: darkslategray;
 }
 .blog-post a {
-  color: rgb(168, 45, 0);
+  font-size: 40px;
+  color: rgb(255, 72, 0);
   text-decoration: none;
-  border-width: 1px;
-  border-bottom-style: dotted;
 }
 .blog-post a:hover {
   color: rgb(255, 72, 0);
@@ -105,8 +104,8 @@ pre {
 .footer-detail {
   padding-top: 60px;
   padding-bottom: 60px;
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 .footer-detail a {
   color: white;

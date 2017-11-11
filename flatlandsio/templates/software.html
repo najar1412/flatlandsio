@@ -16,14 +16,23 @@
 <a name="{{ type }}"></a>
     {% for code, data in software.items() %}
         {% if data.type == type %}
+        <p style="height:10px;"></p>
             <div class="blog-post">
-                <small>{{ data.type }}</small>
-                <h4><a href="/software/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
-                <div class="blog-post-strap">{{data.strap}}</div>
+                <h1 style="color: rgb(255, 72, 0); font-size: 40px; margin-bottom: 10px;">{{data.title}}</h1>
+
+                <img style="margin-top: 10px; margin-bottom: 10px; width: 25px; height: 25px;" src="{{ url_for('static', filename='img/002-document.svg') }}">  &nbsp; &nbsp;  &nbsp;  
+                <span style="font-size: 18px;">{{data.summary}}</span> <br>
+                <img style="margin-top: 10px; margin-bottom: 10px; width: 25px; height: 25px;" src="{{ url_for('static', filename='img/001-layers.svg') }}"> &nbsp; &nbsp;  &nbsp; {{data.tech}} <br>
+                <img style="margin-top: 10px; margin-bottom: 10px; width: 25px; height: 25px;" src="{{ url_for('static', filename='img/003-link.svg') }}"> &nbsp; &nbsp;  &nbsp; {{data.code}} <br>
+
+                <hr>
+                Goals:
+                <div class="blog-post-strap">{{data.goal}}</div>
+
             </div>
         {% endif %}
     {% endfor %}
-    <div style="color: lightgray; text-align: center; word-spacing: 50px; font-size: 50px">· · ·</div>
+    <div style="color: darkslategray; text-align: center; word-spacing: 50px; font-size: 50px">· · ·</div>
 {% endfor %}
 
 {% endblock %}
