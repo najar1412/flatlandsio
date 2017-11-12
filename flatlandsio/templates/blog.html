@@ -12,25 +12,29 @@
 <p style="height: 20px;"></p>
 
 {% for year in years %}
-<a name="{{ year }}"></a><div class="section-head"><h4>{{ year }}</h4></div></a>
+    <a name="{{ year }}">
+        <div class="section-head">
+            <h4>{{ year }}</h4>
+        </div>
+    </a>
     {% for code, data in posts.items()|reverse %}
         {% if data.pub_date.endswith(year) and data.published != 'False' %}
             <div class="blog-post">
-                <small>{{data.pub_date}}</small>
+                <small style="padding-left: 50px;">{{data.pub_date}}</small>
                 <h4><a href="/blog/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
                 <div class="blog-post-strap">{{data.strap}}</div>
                 <div>
                     <small>
                         tags: 
                         {% for tag in data.tags.split(' ') %}
-                        <a  style="font-size: 10px;" href="/tag/{{tag}}">{{tag}}</a>, 
+                            <a  style="font-size: 10px;" href="/tag/{{tag}}">{{tag}}</a>, 
                         {% endfor %}
                     </small>
                 </div>
             </div>
         {% endif %}
     {% endfor %}
-    <div style="color: lightgray; text-align: center; word-spacing: 50px; font-size: 50px">· · ·</div>
+    <div style="color: rgba(0, 92, 173, 0.5); text-align: center; word-spacing: 50px; font-size: 50px;">· · ·</div>
 {% endfor %}
 
 {% endblock %}

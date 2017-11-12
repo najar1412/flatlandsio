@@ -72,7 +72,7 @@ pre {
 .blog-post small {
   position: relative;
   top: 10px;
-  color: lightslategray;
+  color: darkslategray;
   font-size: 11px;
   font-style: italic;
 }
@@ -94,12 +94,34 @@ pre {
   border-width: 1px;
   border-bottom-style: dotted;
 }
+.post {
+  padding-left: 10%;
+  padding-right: 5%;
+  padding-bottom: 40px;
+}
+.post small {
+  position: relative;
+  top: 10px;
+  color: darkslategray;
+  font-size: 11px;
+  font-style: italic;
+}
+.post h4 {
+  color: darkslategray;
+}
+.post a {
+  color: rgb(255, 72, 0);
+  text-decoration: none;
+}
+.post a:hover {
+  color: rgb(255, 72, 0);
+  border-width: 1px;
+  border-bottom-style: dotted;
+}
 .footer {
-  background-color: slategray;
-  color: white;
+  background-color: rgba(0, 92, 173, 0.12);
+  color: black;
   font-size: 15px;
-  border-width: 2px;
-  border-top-style: dotted;
 }
 .footer-detail {
   padding-top: 60px;
@@ -108,7 +130,7 @@ pre {
   padding-right: 10%;
 }
 .footer-detail a {
-  color: white;
+  color: rgb(255, 72, 0);
   text-decoration: none;
 }
 .footer-detail a:hover {

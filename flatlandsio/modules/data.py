@@ -37,7 +37,7 @@ software = {
         'tech': 'python, maxscript',
         'code': 'http://github.com/example',
         'goal': 'extending fucntionality of 3ds max with copy and paste between open 3ds max files.',
-        'type': 'plugin'
+        'type': 'script'
     },
     5: {
         'title': 'auto comp',
@@ -47,7 +47,7 @@ software = {
         'tech': 'python, flask and aws.',
         'code': 'http://github.com/example',
         'goal': 'automates the compositing all standard vray passes, for quick visualisation within Nuke.',
-        'type': 'plugin'
+        'type': 'script'
     },
 }
 
