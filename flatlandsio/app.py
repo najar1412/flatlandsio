@@ -42,6 +42,11 @@ class Software(db.Model):
 
 db.create_all()
 
+# custom error pages
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('error/404.html'), 404
+
 
 @app.route('/')
 def index():
@@ -96,7 +101,7 @@ def post_edit(title):
     if request.method == 'GET':
         title = title.replace('-', ' ')
         post = modules.database.to_json((Post.query.filter_by(title=title).first(),))[1]
-        post['content'] = modules.database.markdown_to_html(post['title'])
+        post['content'] = modules.database.markdown_to_string(f"{post['title'].replace(' ', '-')}.md")
 
         return render_template('post_edit.html', post=post)
 
@@ -183,4 +188,4 @@ def settings():
 
 
 if __name__ == '__main__':
-    app.run(debug='true')
+    app.run(debug=True)

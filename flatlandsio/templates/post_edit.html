@@ -9,17 +9,17 @@
 
     <div class="form-group">
         <label for="inputTitle">Title</label>
-        <input type="text" class="form-control" name="inputTitle" id="inputTitle">
+        <input type="text" class="form-control" value="{{ post.title }}" name="inputTitle" id="inputTitle">
     </div>
 
     <div class="form-group">
         <label for="inputPubDate">Publish Date</label>
-        <input type="text" class="form-control" name="inputPubDate" id="inputPubDate">
+        <input type="text" class="form-control" value="{{ post.pub_date }}" name="inputPubDate" id="inputPubDate">
     </div>
 
     <div class="form-group">
         <label for="inputStrap">Strap</label>
-        <input type="text" class="form-control" name="inputStrap" id="inputStrap">
+        <input type="text" class="form-control" value="{{ post.strap }}" name="inputStrap" id="inputStrap">
     </div>
 
     <div class="form-group">
@@ -29,7 +29,7 @@
 
     <div class="form-group">
       <label for="inputTags">Tags</label>
-      <input type="text" class="form-control" name="inputTags" id="inputTags">
+      <input type="text" class="form-control" value="{{post.tags}}" name="inputTags" id="inputTags">
     </div>
 
     <div class="form-group">
@@ -51,23 +51,5 @@
 
   </form>
 
-  <hr>
-
-  <div class="title">{{ post.title }}</div>
-  <br>
-  <div class="blog-post">
-    {{ post.content|safe }}
-    <div>
-        <small>{{ post.author }}, {{ post.pub_date }}</small>
-    </div>
-    <div>
-        <small>
-            {% for tag in post.tags.split(' ') %}
-            <a href="/tag/{{tag}}">{{tag}}</a>, 
-            {% endfor %}
-        </small>
-    </div>
-</div>
-
-
+  
 {% endblock %}
