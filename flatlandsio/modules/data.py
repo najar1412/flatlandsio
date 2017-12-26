@@ -99,18 +99,5 @@ about = {
                 'content': "my plate is pretty full currently, but room can always be made for interesting projects. the best place to enquire would be hello@flatlands.io"
             },
         }
-    },
-    3: {
-        'title': 'follow me',
-        'content': {
-            1: {
-                'title': 'social 01',
-                'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-            },
-            2: {
-                'title': 'social 02',
-                'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-            }
-        }
     }
 }

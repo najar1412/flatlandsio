@@ -11,19 +11,23 @@ pre {
   padding-left: 20px;
 }
 .header {
-  padding-bottom: 15px;
+  margin: 0;
+  padding-bottom: 30px;
   padding-top: 40px;
   padding-left: 10%;
   padding-right: 10%;
+  display: flex;
 }
 .header a {
   color: black;
   text-decoration: none;
 }
 .title {
+  margin: 0;
   font-size: 50px;
 }
 .header-nav {
+  margin: 0;
   color: slategray;
   word-spacing: 30px;
   font-size: 15px;
@@ -36,6 +40,25 @@ pre {
   color: black;
   border-width: 1px;
   border-bottom-style: dotted;
+}
+.col {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 75%;
+}
+.col_social {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: 25%;
+  text-align: right;
+}
+.col_social img {
+  opacity: 0.2;
+}
+.col_social img:hover {
+  opacity: 0.8;
 }
 .sub-nav {
   padding-left: 10%;
@@ -119,15 +142,18 @@ pre {
   border-bottom-style: dotted;
 }
 .footer {
-  background-color: rgba(0, 92, 173, 0.12);
-  color: black;
+  background-color: rgba(0, 0, 0, .85);
+  color: white;
   font-size: 15px;
+  display: flex;
 }
 .footer-detail {
+  text-align: center;
   padding-top: 60px;
   padding-bottom: 60px;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 33%;
 }
 .footer-detail a {
   color: rgb(255, 72, 0);

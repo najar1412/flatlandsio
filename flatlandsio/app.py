@@ -157,12 +157,12 @@ def tag(tag):
     return render_template('tag.html', posts=posts, years=years)
 
 
-@app.route('/software')
-def software():
-    software = data.software
-    software_types = data.get_software_types(software)
+@app.route('/portfolio')
+def portfolio():
+    portfolio = data.software
+    portfolio_types = data.get_software_types(portfolio)
 
-    return render_template('software.html', software=software, software_types=software_types)
+    return render_template('portfolio.html', software=portfolio, software_types=portfolio_types)
 
 
 @app.route('/software/<title>')

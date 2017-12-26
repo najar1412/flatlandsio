@@ -20,7 +20,7 @@
     {% for code, data in posts.items()|reverse %}
         {% if data.pub_date.endswith(year) and data.published != 'False' %}
             <div class="blog-post">
-                <small style="padding-left: 50px;">{{data.pub_date}}</small>
+                <small>{{data.pub_date}}</small>
                 <h4><a href="/blog/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
                 <div class="blog-post-strap">{{data.strap}}</div>
                 <div>
