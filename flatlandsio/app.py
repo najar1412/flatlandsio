@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template, request, redirect, abort, Response
+from flask import Flask, render_template, request, redirect, abort, Response, session
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user
 
 import modules.data as data
@@ -61,8 +61,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    # module.query.session_close(session)
-
+    session.clear()
 
     return redirect("/login")
 
