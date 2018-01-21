@@ -76,16 +76,22 @@ pre {
   border-bottom-style: dotted;
 }
 .main-content {
+  margin: 0;
+  border:0;
   padding-left: 10%;
   padding-right: 10%;
+  background-image: url('/static/img/base_image.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% auto;
 }
 .section-head {
-  color: rgba(0, 92, 173, 0.12);
-  height: 35px;
+  color: rgba(0, 92, 173, 0.06);
+  height: 70px;
 }
 .section-head h4 {
   font-weight: bold;
-  font-size: 100px;
+  font-size: 150px;
 }
 .blog-post {
   padding-left: 10%;
@@ -149,8 +155,8 @@ pre {
 }
 .footer-detail {
   text-align: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 100px;
+  padding-bottom: 200px;
   padding-left: 20px;
   padding-right: 20px;
   width: 33%;
