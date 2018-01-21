@@ -11,6 +11,7 @@ flask = "*"
 gunicorn = "*"
 flask-sqlalchemy = "*"
 markdown = "*"
+flask-login = "*"
 
 
 [dev-packages]

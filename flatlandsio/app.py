@@ -1,6 +1,7 @@
 import os
 
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, abort, Response
+from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user
 
 import modules.data as data
 import modules.database
@@ -9,11 +10,68 @@ import modules.models
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flatlands.db'
+app.config['SECRET_KEY'] = 'jkh34k5jh3k4j5hk3j4h5'
+
+# flask-login
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "login"
 
 modules.models.db.init_app(app)
 modules.models.db.create_all(app=app)
 
 root_dir = os.path.dirname(os.path.abspath(__file__))
+
+# callback to reload the user object        
+@login_manager.user_loader
+def load_user(userid):
+    return modules.models.User.query.filter_by(id=userid).first()
+
+
+# somewhere to login
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        # validate cred
+        validate_username = modules.models.User.query.filter_by(username=username).first()
+        if validate_username:
+            if validate_username.password == password:
+                login_user(validate_username)
+
+                return redirect(request.args.get("next"))
+
+        else:
+            return abort(401)
+
+    else:
+        return Response('''
+            <form action="" method="post">
+                <p><input type=text name=username>
+                <p><input type=password name=password>
+                <p><input type=submit value=Login>
+            </form>
+        ''')
+
+
+# somewhere to logoutlogout
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    # module.query.session_close(session)
+
+
+    return redirect("/login")
+
+
+# handle login failed
+@app.errorhandler(401)
+def page_not_found(e):
+    return Response('<p>Login failed</p>')
+
 
 # custom error pages
 @app.errorhandler(404)
@@ -153,6 +211,7 @@ def about():
 
 
 @app.route('/settings')
+@login_required
 def settings():
     posts = modules.database.to_json(modules.models.Post.query.all())
     years = modules.database.get_post_years(posts)
