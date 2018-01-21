@@ -1,9 +1,9 @@
 import os
 import datetime
 
-import markdown
-
 import app
+import markdown
+import modules.models
 
 
 def to_json(results):
@@ -115,7 +115,7 @@ def form_to_dict(form_request):
 
 
 def edit_post(form, title):
-    get_post = app.Post.query.filter_by(title=title.replace('-', ' ')).first()
+    get_post = modules.models.Post.query.filter_by(title=title.replace('-', ' ')).first()
 
     if form['inputTitle']:
         get_post.title = form['inputTitle']
@@ -123,8 +123,8 @@ def edit_post(form, title):
 
         rename_file = rename_markdown_file(f'{title}.md', f'{form["inputTitle"].replace(" ", "-")}.md')
 
-    app.db.session.add(get_post)
-    app.db.session.commit()
+    modules.models.db.session.add(get_post)
+    modules.models.db.session.commit()
 
     return True
     
