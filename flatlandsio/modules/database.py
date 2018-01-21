@@ -4,7 +4,10 @@ import datetime
 import app
 import markdown
 import modules.models
+import config
 
+
+APP_ROOT = config.APP_ROOT
 
 def to_json(results):
     result = {}
@@ -38,7 +41,7 @@ def get_post_years(posts=None):
 
 
 def create_markdown(post_name, content):
-    post_dir = os.path.join(app.root_dir, 'posts')
+    post_dir = os.path.join(APP_ROOT, 'posts')
 
     with open(os.path.join(post_dir, f'{post_name}.md'), 'w') as f: 
         f.write(str(content)) 
@@ -47,7 +50,7 @@ def create_markdown(post_name, content):
 
 
 def markdown_to_html(title):
-    post_dir = os.path.join(app.root_dir, 'posts')
+    post_dir = os.path.join(APP_ROOT, 'posts')
 
     with open(os.path.join(post_dir, f"{title.replace(' ', '-')}.md")) as f: 
         text = f.read()
@@ -58,7 +61,7 @@ def markdown_to_html(title):
 
 def markdown_to_string(markdown_file):
     output = None
-    post_dir = os.path.join(app.root_dir, 'posts')
+    post_dir = os.path.join(APP_ROOT, 'posts')
 
     with open(os.path.join(post_dir, f'{markdown_file}')) as f: 
         output = f.read()
@@ -67,7 +70,7 @@ def markdown_to_string(markdown_file):
 
 
 def delete_markdown_file(content):
-    post_dir = os.path.join(app.root_dir, 'posts')
+    post_dir = os.path.join(APP_ROOT, 'posts')
 
     try:
         os.remove(os.path.join(post_dir, f'{content}.md'))
@@ -79,7 +82,7 @@ def delete_markdown_file(content):
 
 
 def rename_markdown_file(src, dst):
-    post_dir = os.path.join(app.root_dir, 'posts')
+    post_dir = os.path.join(APP_ROOT, 'posts')
 
     try:
         os.rename(

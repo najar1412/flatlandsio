@@ -1,7 +1,7 @@
 import os
 
 from flask import Flask, render_template, request, redirect, abort, Response, session
-from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user
+from flask_login import LoginManager, login_required, login_user, logout_user
 
 import modules.data as data
 import modules.database
@@ -9,8 +9,7 @@ import modules.models
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flatlands.db'
-app.config['SECRET_KEY'] = 'jkh34k5jh3k4j5hk3j4h5'
+app.config.from_object('config')
 
 # flask-login
 login_manager = LoginManager()
@@ -19,8 +18,6 @@ login_manager.login_view = "login"
 
 modules.models.db.init_app(app)
 modules.models.db.create_all(app=app)
-
-root_dir = os.path.dirname(os.path.abspath(__file__))
 
 # callback to reload the user object        
 @login_manager.user_loader
@@ -63,7 +60,7 @@ def logout():
     logout_user()
     session.clear()
 
-    return redirect("/login")
+    return redirect("/")
 
 
 # handle login failed
