@@ -6,6 +6,7 @@ from flask_login import LoginManager, login_required, login_user, logout_user
 import modules.data as data
 import modules.database
 import modules.models
+import modules.current_posts
 
 
 app = Flask(__name__)
@@ -24,6 +25,10 @@ modules.models.db.create_all(app=app)
 def load_user(userid):
     return modules.models.User.query.filter_by(id=userid).first()
 
+# TODO: below is the current solution for post persistancy between dev and prod
+# databases.
+# Eventually build something that gets posts from the post folder.
+modules.current_posts.current_posts(modules.models.db)
 
 # somewhere to login
 @app.route("/login", methods=["GET", "POST"])
