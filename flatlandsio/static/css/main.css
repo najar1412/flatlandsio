@@ -80,13 +80,12 @@ pre {
   border:0;
   padding-left: 10%;
   padding-right: 10%;
-  background-image: url('/static/img/base_image.jpg');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 100% auto;
 }
 .section-head {
-  color: rgba(0, 92, 173, 0.06);
+  color: rgba(0, 0, 0, .1);
   height: 70px;
 }
 .section-head h4 {
@@ -152,14 +151,10 @@ pre {
   color: white;
   font-size: 15px;
   display: flex;
+  justify-content: center;
 }
 .footer-detail {
-  text-align: center;
-  padding-top: 100px;
-  padding-bottom: 200px;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 33%;
+  justify-content: flex-end;
 }
 .footer-detail a {
   color: rgb(255, 72, 0);
