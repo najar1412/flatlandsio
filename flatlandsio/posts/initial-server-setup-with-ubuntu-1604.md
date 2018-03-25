@@ -1,6 +1,8 @@
+This guide is originally from [Digitalocean](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04). Full credit goes to them, this is just a condensed version for my reference.
+
 ### Introduction
 
-This guide is originally from [Digitalocean](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04). Full credit goes to them, this is just a condensed version for my reference.
+Using [letsencrypt](https://letsencrypt.org/) to get and validate ssl certificates on ubuntu.
 
 ### Step One — Root Login
 
@@ -46,7 +48,7 @@ $ ssh-keygen
 
 This generates a private key, id_rsa, and a public key, id_rsa.pub, in the .ssh directory.
 
-#### Copy the Public Key
+##### Copy the Public Key
 
 ##### Option 1: Use ssh-copy-id
 

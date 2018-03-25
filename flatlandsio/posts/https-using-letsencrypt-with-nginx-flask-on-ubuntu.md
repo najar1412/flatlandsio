@@ -1,6 +1,8 @@
+This guide is originally from [Miguel Grinberg](https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https) and [Digitalocean](http://https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04). Full credit goes to them, this is just a condensed version for my reference.
+
 ### Introduction
 
-This guide is originally from [Miguel Grinberg](https://blog.miguelgrinberg.com/post/running-your-flask-application-over-https) and [Digitalocean](http://https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04). Full credit goes to them, this is just a condensed version for my reference.
+Using [letsencrypt](https://letsencrypt.org/) to get and validate ssl certificates on ubuntu.
 
 ### Using Let's Encrypt for free SSL Certs
 

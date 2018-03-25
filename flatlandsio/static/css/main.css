@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(rgb(255, 201, 14), rgb(255, 201, 14));
+  background: linear-gradient(rgb(51, 51, 58), white);
   
   }
 
@@ -12,8 +12,8 @@ body {
 
   .title {
     margin: 0;
-    font-size: 75px;
-    text-shadow: 1px 1px rgba(1, 1, 1, .5);
+    font-size: 50px;
+   
   }
 .header {
   margin: 0;
@@ -34,14 +34,16 @@ body {
   margin: 0;
   word-spacing: 30px;
   font-size: 15px;
+  padding-top: 30px;
+  padding-left: 40px;
 }
 .header-nav a {
-  color: black;
-  font-weight: 300;
+  color: white;
+  font-weight: 600;
   text-decoration: none;
 }
 .header-nav a:hover {
-  color: black;
+  color: rgb(255, 201, 14);
   border-width: 1px;
   border-bottom-style: dotted;
 }
@@ -65,10 +67,9 @@ body {
   opacity: 0.8;
 }
 .sub-nav {
-  padding-left: 10%;
   color: rgba(242, 242, 242, .5);
   word-spacing: 30px;
-  font-size: 15px;
+  font-size: 10px;
 }
 .sub-nav a {
   color: rgb(242, 242, 242);
@@ -84,7 +85,7 @@ body {
   -webkit-box-shadow: 0px 197px 9px -198px rgba(0,0,0,.5) inset;
   -moz-box-shadow: 0px 197px 9px -198px rgba(0,0,0,.5) inset;
 
-background: linear-gradient(rgb(109, 122, 139), rgb(59, 72, 89));
+background: linear-gradient(rgb(99, 112, 129), rgb(119, 132, 149));
   padding-top: 3%;
   padding-bottom: 5%;
   
@@ -131,7 +132,7 @@ position:relative;
   text-decoration: none;
 }
 .blog-post-strap {
-  color: rgb(242, 242, 242);
+  color: white;
   font-style: italic;
 }
 
@@ -169,23 +170,36 @@ position:relative;
 }
 .post small {
   color: rgb(242, 242, 242);
-  font-size: 11px;
-  font-style: italic;
-  margin:0;
+}
+.post small a {
+  color: rgb(242, 242, 242);
+}
+.post small span {}
+.post small span a:hover{
+  color:rgb(255, 201, 14);
+  text-decoration: none;
 }
 .post h3 {
   padding-top:40px;
   padding-bottom:20px;
+  color:rgb(255, 201, 14);
+}
+
+.post h5 {
+  padding-bottom:20px;
+  color:rgb(255, 201, 14);
 }
 .post p {
   height:auto;
 }
 .post a {
-  color: rgba(242, 242, 242, .5);
+  color: rgb(242, 242, 242);
   text-decoration: none;
+  border-width: 1px;
+  border-bottom-style: dotted;
 }
 .post a:hover {
-  color: rgba(242, 242, 242, .5);
+  color: white;
   border-width: 1px;
   border-bottom-style: dotted;
 }
@@ -208,11 +222,27 @@ position:relative;
 }
 
 .footer-detail img {
-  -webkit-filter: drop-shadow(3px 3px 0px rgb(59, 72, 89));
-  filter: drop-shadow(3px 3px 0px rgb(59, 72, 89)); 
+  -webkit-filter: drop-shadow(3px 3px 0px rgb(105, 105, 105));
+  filter: drop-shadow(3px 3px 0px rgb(136, 136, 136)); 
 }
 
 #search-button {
   width: 32px;
   height: 32px;
 }
+
+
+
+
+
+
+
+.w3-input{padding:8px;color:white;display:block;border:none;background-color:transparent;border-bottom:2px solid #ccc;width:100%}
+
+
+
+
+
+
+
+

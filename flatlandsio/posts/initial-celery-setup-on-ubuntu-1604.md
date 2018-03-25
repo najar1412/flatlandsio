@@ -1,6 +1,9 @@
+This guide is originally from [pythad.github.io](https://pythad.github.io/articles/2016-12/how-to-run-celery-as-a-daemon-in-production). Full credit goes to them, this is just a condensed version for my reference.
+
 ### Introduction
 
-This guide is originally from [pythad.github.io](https://pythad.github.io/articles/2016-12/how-to-run-celery-as-a-daemon-in-production). Full credit goes to them, this is just a condensed version for my reference.
+Minimal needed to get [celery](http://www.celeryproject.org/) up and running in a venv on ubuntu.
+
 
 ### Init-script: celeryd
 

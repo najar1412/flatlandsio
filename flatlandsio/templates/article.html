@@ -4,7 +4,6 @@
 {% include 'article_nav.html' %}
 
 
-
 {% for year in years %}
     <a name="{{ year }}">
         <div class="section-head">
@@ -17,13 +16,8 @@
                 
                 <h4><a href="/article/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
                 <small>
-                    
-                    
                     published:&emsp;{{data.pub_date}} &emsp; &emsp;
                     
-                        
-                   
-
                     tags:&emsp;
                         {% for tag in data.tags.split(' ') %}
                         <span class="badge badge-light"><a style="color:black;font-size:10px;" href="/tag/{{tag}}">{{tag}}</a></span>

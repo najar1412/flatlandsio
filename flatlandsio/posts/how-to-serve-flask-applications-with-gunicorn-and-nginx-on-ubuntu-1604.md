@@ -1,6 +1,9 @@
-### Introduction
 
 This guide is originally from [Digitalocean](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-16-04). Full credit goes to them, this is just a condensed version for my reference.
+
+### Introduction
+
+...
 
 ### Install the Components from the Ubuntu Repositories
 
@@ -13,7 +16,7 @@ $ sudo apt-get update
 $ sudo apt-get install python3-pip python3-dev nginx
 ```
 
-#### Create the WSGI Entry Point
+### Create the WSGI Entry Point
 
 Create a file that will serve as the entry point for our application.
 
@@ -33,7 +36,7 @@ if __name__ == "__main__":
     app.run()
 ```
 
-#### Testing Gunicorn's Ability to Serve the Project
+### Testing Gunicorn's Ability to Serve the Project
 
 ```
 $ cd ~/myproject

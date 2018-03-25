@@ -1,9 +1,9 @@
 This guide is originally from [Tutsplus](https://code.tutsplus.com/tutorials/how-to-write-package-and-distribute-a-library-in-python--cms-28693). Full credit goes to them, this is just a condensed version for my reference.
 
-Let's quickly write a little Python 3 package to illustrate all of the below.
 
 ### The Pathology Package
 
+Let's quickly write a little Python 3 package to illustrate all of the below.
 A basic library to get started with.
 
 Here is the implementation:
@@ -77,13 +77,17 @@ setup(name='pathology',
 
 Let's build a source distribution:
 
+```
 > $ python setup.py sdist
-> 
+```
+
 The result is a tar-gzipped file under the dist directory.
 
 And here is a binary distribution:
 
+```
 > $ python setup.py bdist_wheel
+```
 
 The pathology package contains only pure Python modules, so a universal package can be built. If your package includes C extensions, you'll have to build a separate wheel for each platform.
 
@@ -126,10 +130,14 @@ username = the_gigi
 
 If this is the first release of your package, you need to register it with PyPI. Use the register command of setup.py. It will ask you for your password. Note that I point it to the test repository here:
 
+```
 > $ python setup.py register -r pypitest
+```
 
 ### Upload Your Package
 
 Now that the package is registered, we can upload it. I recommend using twine, which is more secure. Install it as usual using pip install twine. Then upload your package using twine and provide your password (redacted below):
 
+```
 > $ twine upload -r pypitest -p <redacted> dist/*
+```
