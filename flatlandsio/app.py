@@ -85,18 +85,18 @@ def index():
     posts = modules.database.to_json(modules.models.Post.query.all())
     years = modules.database.get_post_years(posts)
 
-    return render_template('blog.html', posts=posts, years=years)
+    return render_template('article.html', posts=posts, years=years)
 
 
-@app.route('/blog')
-def blog():
+@app.route('/article')
+def article():
     posts = modules.database.to_json(modules.models.Post.query.all())
     years = modules.database.get_post_years(posts)
 
-    return render_template('blog.html', posts=posts, years=years)
+    return render_template('article.html', posts=posts, years=years)
 
 
-@app.route('/blog/<title>')
+@app.route('/article/<title>')
 def post(title):
     title = title.replace('-', ' ')
 
@@ -106,7 +106,7 @@ def post(title):
     return render_template('blog_post.html', post=blog_post)
 
 
-@app.route('/blog/new', methods=['GET', 'POST'])
+@app.route('/article/new', methods=['GET', 'POST'])
 def post_new():
     if request.method == 'POST':
         form = request.form
@@ -128,7 +128,7 @@ def post_new():
     return render_template('settings.html', posts=posts, years=years)
 
 
-@app.route('/blog/edit/<title>', methods=["GET", "POST"])
+@app.route('/article/edit/<title>', methods=["GET", "POST"])
 def post_edit(title):
     if request.method == 'GET':
         title = title.replace('-', ' ')
@@ -143,10 +143,10 @@ def post_edit(title):
         modules.database.edit_post(form, title)
         title = form['inputTitle'].replace(' ', '-')
 
-        return redirect(f'/blog/{title}')
+        return redirect(f'/article/{title}')
 
 
-@app.route('/blog/publish/<title>')
+@app.route('/article/publish/<title>')
 def post_publish(title):
     title = title.replace('-', ' ')
     get_post = modules.models.Post.query.filter_by(title=title).first()
@@ -162,7 +162,7 @@ def post_publish(title):
     return redirect('/settings')
 
 
-@app.route('/blog/delete/<title>')
+@app.route('/article/delete/<title>')
 def post_delete(title):
     del_markdown = modules.database.delete_markdown_file(title)
     if del_markdown:

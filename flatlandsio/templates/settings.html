@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="blog-post">
-    <form class="form-inline" action="/blog/new" method="POST">
+    <form class="form-inline" action="/article/new" method="POST">
         <div class="form-group">
             <label for="newPost"></label>
             <input type="text" readonly class="form-control-plaintext" id="newPost" value="New Post">
@@ -38,13 +38,13 @@
               <tr class="table-danger">
             {% endif %}
                     <th scope="row">{{data.id}}</th>
-                    <td><a style="font-size: 15px;" href="/blog/{{data.title.replace(' ', '-')}}">{{data.title}}</a></td>
+                    <td><a style="font-size: 15px;" href="/article/{{data.title.replace(' ', '-')}}">{{data.title}}</a></td>
                     <td>{{data.tags}}</td>
                     <td>{{data.published}}</td>
                     <td>
-                        <a style="font-size: 15px;" href="/blog/edit/{{data.title.replace(' ', '-')}}">[E]</a>
-                        <a style="font-size: 15px;" href="/blog/publish/{{data.title.replace(' ', '-')}}">[P]</a>
-                        <a style="font-size: 15px;" href="/blog/delete/{{data.title.replace(' ', '-')}}">[D]</a>
+                        <a style="font-size: 15px;" href="/article/edit/{{data.title.replace(' ', '-')}}">[E]</a>
+                        <a style="font-size: 15px;" href="/article/publish/{{data.title.replace(' ', '-')}}">[P]</a>
+                        <a style="font-size: 15px;" href="/article/delete/{{data.title.replace(' ', '-')}}">[D]</a>
                     </td>
               </tr>
         {% endif %}

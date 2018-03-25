@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
+
 <div class="sub-nav">
+    year:
     {% for year in years %}
         <a href="#{{ year }}">{{ year }}</a>
     {% endfor %}
 </div>
 
-<hr>
+<p style="height:1px;"></p>
 
-<p style="height: 20px;"></p>
+
 
 {% for year in years %}
     <a name="{{ year }}">
@@ -20,21 +22,22 @@
     {% for code, data in posts.items()|reverse %}
         {% if data.pub_date.endswith(year) and data.published != 'False' %}
             <div class="blog-post">
-                <small>{{data.pub_date}}</small>
-                <h4><a href="/blog/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
-                <div class="blog-post-strap">{{data.strap}}</div>
-                <div>
-                    <small>
-                        tags: 
+                
+                <h4><a href="/article/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
+                <small>published:&emsp;{{data.pub_date}} &emsp; &emsp;
+                    
+                        tags:&emsp;
                         {% for tag in data.tags.split(' ') %}
                             <a  style="font-size: 10px;" href="/tag/{{tag}}">{{tag}}</a>, 
                         {% endfor %}
                     </small>
-                </div>
+                    <hr style="background-color:white;">
+                <div class="blog-post-strap">{{data.strap}}</div>
             </div>
+            <p style="height:30px;"></p>
         {% endif %}
     {% endfor %}
-    <div style="color: rgba(0, 92, 173, 0.5); text-align: center; word-spacing: 50px; font-size: 50px;">· · ·</div>
+    <div style="color: rgb(242, 242, 242); text-align: center; word-spacing: 50px; font-size: 50px;">· · ·</div>
 {% endfor %}
 
 {% endblock %}

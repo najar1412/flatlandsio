@@ -7,7 +7,7 @@
         {% if data.pub_date.endswith(year) %}
             <div class="blog-post">
                 <small>{{data.pub_date}}</small>
-                <h4><a href="/blog/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
+                <h4><a href="/article/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
                 <div class="blog-post-strap">{{data.strap}}</div>
             </div>
         {% endif %}
