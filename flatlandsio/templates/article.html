@@ -1,15 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-<div class="sub-nav">
-    year:
-    {% for year in years %}
-        <a href="#{{ year }}">{{ year }}</a>
-    {% endfor %}
-</div>
-
-<p style="height:1px;"></p>
+{% include 'article_nav.html' %}
 
 
 
@@ -34,7 +26,7 @@
 
                     tags:&emsp;
                         {% for tag in data.tags.split(' ') %}
-                        <span class="badge badge-dark"><a style="font-size:10px;" href="/tag/{{tag}}">{{tag}}</a></span>
+                        <span class="badge badge-light"><a style="color:black;font-size:10px;" href="/tag/{{tag}}">{{tag}}</a></span>
 
                         {% endfor %}
                     

@@ -1,17 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
+{% include 'article_nav.html' %}
+
 {% for year in years %}
-<div class="section-head"><h4>{{ year }}</h4></div>
-    {% for code, data in posts.items() %}
-        {% if data.pub_date.endswith(year) %}
+    <a name="{{ year }}">
+        <div class="section-head">
+            <h4>{{ year }}</h4>
+        </div>
+    </a>
+    {% for code, data in posts.items()|reverse %}
+        {% if data.pub_date.endswith(year) and data.published != False %}
             <div class="blog-post">
-                <small>{{data.pub_date}}</small>
+                
                 <h4><a href="/article/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
+                <small>
+                    
+                    
+                    published:&emsp;{{data.pub_date}} &emsp; &emsp;
+                    
+                        
+                   
+
+                    tags:&emsp;
+                        {% for tag in data.tags.split(' ') %}
+                        <span class="badge badge-light"><a style="color:black;font-size:10px;" href="/tag/{{tag}}">{{tag}}</a></span>
+
+                        {% endfor %}
+                    
+                    </small>
+
+
+                    <hr style="background-color:rgba(242, 242, 242, .5);">
                 <div class="blog-post-strap">{{data.strap}}</div>
             </div>
+            <p style="height:30px;"></p>
         {% endif %}
     {% endfor %}
+    <div style="color: rgb(242, 242, 242); text-align: center; word-spacing: 50px; font-size: 50px;">· · ·</div>
 {% endfor %}
 
 {% endblock %}

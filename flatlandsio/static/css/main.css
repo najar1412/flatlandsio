@@ -2,18 +2,18 @@
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  background: linear-gradient(white, rgb(89, 102, 119));
+  background: linear-gradient(rgb(255, 201, 14), rgb(255, 201, 14));
   
   }
 
   .form-control:focus {
-    border-color: rgb(255, 201, 14);
     box-shadow: none; -webkit-box-shadow: none;
   }
 
   .title {
     margin: 0;
-    font-size: 50px;
+    font-size: 75px;
+    text-shadow: 1px 1px rgba(1, 1, 1, .5);
   }
 .header {
   margin: 0;
@@ -24,9 +24,10 @@ body {
 
 }
 .header a {
-  color: rgb(59, 72, 89);
+  color: white;
   text-decoration: none;
-  font-weight: 100;
+  font-weight: 300;
+
 }
 
 .header-nav {
@@ -35,7 +36,8 @@ body {
   font-size: 15px;
 }
 .header-nav a {
-  color: rgb(59, 72, 89);
+  color: black;
+  font-weight: 300;
   text-decoration: none;
 }
 .header-nav a:hover {
@@ -83,7 +85,7 @@ body {
   -moz-box-shadow: 0px 197px 9px -198px rgba(0,0,0,.5) inset;
 
 background: linear-gradient(rgb(109, 122, 139), rgb(59, 72, 89));
-  padding-top: 8%;
+  padding-top: 3%;
   padding-bottom: 5%;
   
   -webkit-transform: skewY(-5deg);
@@ -115,7 +117,7 @@ position:relative;
   padding-bottom: 40px;
 }
 .blog-post h4 {
-  margin:0px;
+
 }
 .blog-post small {
   color: rgb(242, 242, 242);
@@ -211,6 +213,6 @@ position:relative;
 }
 
 #search-button {
-  width: 50px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
 }
