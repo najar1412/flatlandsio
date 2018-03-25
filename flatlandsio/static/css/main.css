@@ -2,7 +2,8 @@
 body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
-  background-color: rgb(242, 242, 242)
+  background: linear-gradient(white, rgb(89, 102, 119));
+  
   }
 pre {
   color: rgb(168, 45, 0);
@@ -17,10 +18,12 @@ pre {
   padding-left: 10%;
   padding-right: 10%;
   display: flex;
+
 }
 .header a {
   color: rgb(59, 72, 89);
   text-decoration: none;
+  font-weight: 100;
 }
 .title {
   margin: 0;
@@ -79,7 +82,7 @@ pre {
   -webkit-box-shadow: 0px 197px 9px -198px rgba(0,0,0,.5) inset;
   -moz-box-shadow: 0px 197px 9px -198px rgba(0,0,0,.5) inset;
 
-background: linear-gradient( rgb(59, 72, 89),rgb(89, 102, 119));
+background: linear-gradient(rgb(109, 122, 139), rgb(59, 72, 89));
   padding-top: 8%;
   padding-bottom: 5%;
   
@@ -91,6 +94,7 @@ background: linear-gradient( rgb(59, 72, 89),rgb(89, 102, 119));
 }
 
 .main-content > .main-content-wrapper{
+ 
   -webkit-transform: skewY(5deg);
   -moz-transform: skewY(5deg);
   -ms-transform: skewY(5deg);
@@ -99,50 +103,49 @@ background: linear-gradient( rgb(59, 72, 89),rgb(89, 102, 119));
 }
 .section-head {
   height:110px;
-
 }
 .section-head h4 {
   font-size: 150px;
 color:rgb(49, 62, 79);
 }
-.article-post {
-
+.blog-post {
+position:relative;
   padding-left: 10%;
   padding-right: 10%;
   padding-bottom: 40px;
 }
-.article-post h4 {
+.blog-post h4 {
   margin:0px;
 }
-.article-post small {
+.blog-post small {
   color: rgba(242, 242, 242, .5);
   font-size: 11px;
 }
-.article-post small a {
+.blog-post small a {
   color: rgba(242, 242, 242, .5);
 }
-.article-post-strap {
+.blog-post-strap {
   color: rgb(242, 242, 242);
   font-style: italic;
 }
 
-.article-post-tag small {
+.blog-post-tag small {
   color: rgba(242, 242, 242, .5);
 }
 
-.article-post-tag small a {
+.blog-post-tag small a {
   color: rgba(242, 242, 242, .5);
 
 }
-.article-post h4 {
+.blog-post h4 {
 }
-.article-post a {
+.blog-post a {
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 300;
   color: rgb(242, 242, 242);
   text-decoration: none;
 }
-.article-post a:hover {
+.blog-post a:hover {
   color: rgb(242, 241, 223);
   border-width: 1px;
   border-bottom-style: dotted;
@@ -172,14 +175,13 @@ color:rgb(49, 62, 79);
   border-bottom-style: dotted;
 }
 .footer {
-  background-color: rgb(242, 242, 242);
-  color: white;
-  font-size: 15px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+
+
 }
 .footer-detail {
-  justify-content: flex-end;
+
 }
 .footer-detail a {
   color: rgb(255, 72, 0);
@@ -188,4 +190,14 @@ color:rgb(49, 62, 79);
 .footer-detail a:hover {
   border-width: 1px;
   border-bottom-style: dotted;
+}
+
+.footer-detail img {
+  -webkit-filter: drop-shadow(3px 3px 0px rgb(59, 72, 89));
+  filter: drop-shadow(3px 3px 0px rgb(59, 72, 89)); 
+}
+
+#search-button {
+  width: 50px;
+  height: 35px;
 }

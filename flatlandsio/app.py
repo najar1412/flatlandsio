@@ -214,10 +214,28 @@ def about():
 @app.route('/settings')
 @login_required
 def settings():
+    return render_template('settings.html')
+
+
+@app.route('/login/article')
+@login_required
+def login_article():
     posts = modules.database.to_json(modules.models.Post.query.all())
     years = modules.database.get_post_years(posts)
 
-    return render_template('settings.html', posts=posts, years=years)
+    return render_template('login_article.html', posts=posts, years=years)
+
+
+@app.route('/login/solution')
+@login_required
+def login_solution():
+    return render_template('login_solution.html')
+
+
+@app.route('/login/about')
+@login_required
+def login_about():
+    return render_template('login_about.html')
 
 
 if __name__ == '__main__':

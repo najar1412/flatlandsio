@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+{% include 'login_submenu.html' %}
+
+
+<h1 style="padding-left:10%; color:rgb(242, 242, 242);">new article</h1>
+<hr>
+
+
+<div class="blog-post">
+
+        <div class="card">
+                <div class="card-body">
+                        <form class="form-inline" action="/article/new" method="POST">
+                            <div class="form-group">
+                                <label for="newPost"></label>
+                                <input type="text" readonly class="form-control-plaintext" id="newPost" value="New Post">
+                            </div>
+                            <div class="form-group mx-sm-3">
+                                <input type="input" class="form-control" name="inputTitle" id="inputTitle" placeholder="Title">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                </div>
+              </div>
+              <p style="height:30px;"></p>
+    </div>
+    
+
+    <h1 style="padding-left:10%; color:rgb(242, 242, 242);">manage articles</h1>
+    <hr>
+
+
+
+    {% for year in years %}
+    <div class="section-head"><h4>{{ year }}</h4></div>
+
+    <div class="blog-post">
+    <table class="table table-hover table-sm">
+        <thead style="background-color:white;">
+          <tr>
+            <th style="font-weight:300;width:5%" scope="col">#</th>
+            <th style="font-weight:300;width:45%" scope="col">Title</th>
+            <th style="font-weight:300;width:25%" scope="col">Tags</th>
+            <th style="font-weight:300;width:10%" scope="col">Published</th>
+            <th style="font-weight:300;width:15%" scope="col">Tools</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for code, data in posts.items() %}
+            {% if data.pub_date.endswith(year) %}
+                {% if data.published == '1' %}
+                <tr class="table-success">
+                {% else %}
+                  <tr class="table-danger">
+                {% endif %}
+                        <th scope="row">{{data.id}}</th>
+                        <td><a style="color: black;font-size: 15px;" href="/article/{{data.title.replace(' ', '-')}}">{{data.title}}</a></td>
+                        <td>{{data.tags}}</td>
+                        <td>{{data.published}}</td>
+                        <td>
+                            <a style="color: black;font-size: 15px;" href="/article/edit/{{data.title.replace(' ', '-')}}">[E]</a>
+                            <a style="color: black;font-size: 15px;" href="/article/publish/{{data.title.replace(' ', '-')}}">[P]</a>
+                            <a style="color: black;font-size: 15px;" href="/article/delete/{{data.title.replace(' ', '-')}}">[D]</a>
+                        </td>
+                  </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+    </table>
+    </div>
+    {% endfor %}
+    
+
+
+{% endblock %}
