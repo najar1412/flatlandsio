@@ -238,7 +238,18 @@ position:relative;
 
 
 .w3-input{padding:8px;color:white;display:block;border:none;background-color:transparent;border-bottom:2px solid #ccc;width:100%}
+::placeholder {
+  color:white;
+  opacity: .7; /* Firefox */
+}
 
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color:rgba(255, 255, 255, .7);
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color:rgba(255, 255, 255, .7);
+}
 
 
 
