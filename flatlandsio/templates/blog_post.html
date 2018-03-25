@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="title">{{ post.title }}</div>
-<br>
 
 <div class="post">
+
+<div class="title">{{ post.title }}</div>
+<small>published:&emsp;{{post.pub_date}} &emsp; &emsp;
+                    
+        tags:&emsp;
+        {% for tag in post.tags.split(' ') %}
+            <a  style="font-size: 10px;" href="/tag/{{tag}}">{{tag}}</a>, 
+        {% endfor %}
+    </small>
+<hr>
+
+
     {{ post.content|safe }}
-    <div>
-        <small>{{ post.author }}, {{ post.pub_date }}</small>
-    </div>
-    <div class="blog-post-tag">
-        <small>
-            {% for tag in post.tags.split(' ') %}
-            <a href="/tag/{{tag}}">{{tag}}</a>, 
-            {% endfor %}
-        </small>
-    </div>
+
+    
 </div>
 
 

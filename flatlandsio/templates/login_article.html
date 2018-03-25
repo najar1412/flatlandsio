@@ -49,7 +49,7 @@
         <tbody>
         {% for code, data in posts.items() %}
             {% if data.pub_date.endswith(year) %}
-                {% if data.published == '1' %}
+                {% if data.published == True %}
                 <tr class="table-success">
                 {% else %}
                   <tr class="table-danger">

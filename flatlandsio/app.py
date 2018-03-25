@@ -115,7 +115,7 @@ def post_new():
 
         admin = modules.models.Post(
             title=form['inputTitle'], author='rory jarrel', 
-            published='False', content=article, 
+            published=False, content=article, 
             pub_date=modules.database.date_format(), tags='', strap=''
         )
 
@@ -151,15 +151,15 @@ def post_publish(title):
     title = title.replace('-', ' ')
     get_post = modules.models.Post.query.filter_by(title=title).first()
 
-    if get_post.published == 'True':
-        get_post.published = 'False'
+    if get_post.published == True:
+        get_post.published = False
 
     else:
-        get_post.published = 'True'
+        get_post.published = True
 
     modules.models.db.session.commit()
 
-    return redirect('/settings')
+    return redirect(request.referrer)
 
 
 @app.route('/article/delete/<title>')

@@ -33,6 +33,7 @@ class User(db.Model):
     def __repr__(self):
         return f'<User {self.id}>'
 
+
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String())
@@ -41,7 +42,7 @@ class Post(db.Model):
     strap = db.Column(db.String())
     content = db.Column(db.String())
     pub_date = db.Column(db.String())
-    published = db.Column(db.String())
+    published = db.Column(db.Boolean, default=False)
 
     def __repr__(self):
         return '<Post %r>' % self.title

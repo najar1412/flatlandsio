@@ -20,18 +20,27 @@
         </div>
     </a>
     {% for code, data in posts.items()|reverse %}
-        {% if data.pub_date.endswith(year) and data.published != 'False' %}
+        {% if data.pub_date.endswith(year) and data.published != False %}
             <div class="blog-post">
                 
                 <h4><a href="/article/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
-                <small>published:&emsp;{{data.pub_date}} &emsp; &emsp;
+                <small>
                     
-                        tags:&emsp;
+                    
+                    published:&emsp;{{data.pub_date}} &emsp; &emsp;
+                    
+                        
+                   
+
+                    tags:&emsp;
                         {% for tag in data.tags.split(' ') %}
-                            <a  style="font-size: 10px;" href="/tag/{{tag}}">{{tag}}</a>, 
+                        <span class="badge badge-dark"><a style="font-size:10px;" href="/tag/{{tag}}">{{tag}}</a></span>
+
                         {% endfor %}
-                    </small>
                     
+                    </small>
+
+
                     <hr style="background-color:rgba(242, 242, 242, .5);">
                 <div class="blog-post-strap">{{data.strap}}</div>
             </div>
