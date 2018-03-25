@@ -6,7 +6,7 @@ posts persistant accross dev/prod databases"""
 
 # current posts
 def current_posts(db):
-    user = 'Rory Jarrel'
+    user = 'flatlandsio'
     with app.app.app_context():
 
         post_all = modules.models.Post.query.all()
@@ -69,6 +69,28 @@ def current_posts(db):
                 published=True
             )
             db.session.add(post_05)
+
+            post_06 = modules.models.Post(
+                title='triggering aws lambda from an s3 event',
+                author=user,
+                tags='aws lambda s3 python boto3',
+                strap='Nothing is here right now...',
+                content='writing-a-library-in-python.md',
+                pub_date='25.3.2017',
+                published=True
+            )
+            db.session.add(post_06)
+
+            post_07 = modules.models.Post(
+                title='using windows task scheduler to push data to aws s3',
+                author=user,
+                tags='windows task scheduler aws s3',
+                strap='Nothing is here right now...',
+                content='using-windows-task-scheduler-to-push-data-to-aws-s3.md',
+                pub_date='25.8.2017',
+                published=True
+            )
+            db.session.add(post_07)
 
 
             db.session.commit()

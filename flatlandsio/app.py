@@ -85,18 +85,18 @@ def index():
     posts = modules.database.to_json(modules.models.Post.query.all())
     years = modules.database.get_post_years(posts)
 
-    return render_template('article.html', posts=posts, years=years)
+    return render_template('posts.html', posts=posts, years=years)
 
 
-@app.route('/article')
-def article():
+@app.route('/posts')
+def posts():
     posts = modules.database.to_json(modules.models.Post.query.all())
     years = modules.database.get_post_years(posts)
 
-    return render_template('article.html', posts=posts, years=years)
+    return render_template('posts.html', posts=posts, years=years)
 
 
-@app.route('/article/<title>')
+@app.route('/post/<title>')
 def post(title):
     title = title.replace('-', ' ')
 
@@ -106,16 +106,16 @@ def post(title):
     return render_template('blog_post.html', post=blog_post)
 
 
-@app.route('/article/new', methods=['GET', 'POST'])
+@app.route('/post/new', methods=['GET', 'POST'])
 def post_new():
     if request.method == 'POST':
         form = request.form
         title = form['inputTitle'].replace(' ', '-')
-        article = modules.database.create_markdown(title, '')
+        post = modules.database.create_markdown(title, '')
 
         admin = modules.models.Post(
             title=form['inputTitle'], author='rory jarrel', 
-            published=False, content=article, 
+            published=False, content=post, 
             pub_date=modules.database.date_format(), tags='', strap=''
         )
 
@@ -128,7 +128,7 @@ def post_new():
     return render_template('settings.html', posts=posts, years=years)
 
 
-@app.route('/article/edit/<title>', methods=["GET", "POST"])
+@app.route('/post/edit/<title>', methods=["GET", "POST"])
 def post_edit(title):
     if request.method == 'GET':
         title = title.replace('-', ' ')
@@ -143,10 +143,10 @@ def post_edit(title):
         modules.database.edit_post(form, title)
         title = form['inputTitle'].replace(' ', '-')
 
-        return redirect(f'/article/{title}')
+        return redirect(f'/post/{title}')
 
 
-@app.route('/article/publish/<title>')
+@app.route('/post/publish/<title>')
 def post_publish(title):
     title = title.replace('-', ' ')
     get_post = modules.models.Post.query.filter_by(title=title).first()
@@ -162,7 +162,7 @@ def post_publish(title):
     return redirect(request.referrer)
 
 
-@app.route('/article/delete/<title>')
+@app.route('/post/delete/<title>')
 def post_delete(title):
     del_markdown = modules.database.delete_markdown_file(title)
     if del_markdown:
@@ -217,13 +217,13 @@ def settings():
     return render_template('settings.html')
 
 
-@app.route('/login/article')
+@app.route('/login/post')
 @login_required
-def login_article():
+def login_post():
     posts = modules.database.to_json(modules.models.Post.query.all())
     years = modules.database.get_post_years(posts)
 
-    return render_template('login_article.html', posts=posts, years=years)
+    return render_template('login_post.html', posts=posts, years=years)
 
 
 @app.route('/login/solution')

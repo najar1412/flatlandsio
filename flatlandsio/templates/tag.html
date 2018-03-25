@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-{% include 'article_nav.html' %}
+{% include 'post_nav.html' %}
 
 {% for year in years %}
     <a name="{{ year }}">
@@ -13,7 +13,7 @@
         {% if data.pub_date.endswith(year) and data.published != False %}
             <div class="blog-post">
                 
-                <h4><a href="/article/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
+                <h4><a href="/post/{{ data.title|replace(" ", "-") }}">{{data.title}}</a></h4>
                 <small>
                     
                     
