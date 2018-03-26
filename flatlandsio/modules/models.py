@@ -1,3 +1,5 @@
+"""Contains flask_sqlalchemy database models"""
+
 from flask_sqlalchemy import SQLAlchemy
 
 

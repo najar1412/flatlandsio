@@ -1,3 +1,5 @@
+"""Contains flatlandsio configution code"""
+
 import os
 
 

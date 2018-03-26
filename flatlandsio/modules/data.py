@@ -1,3 +1,5 @@
+"""fake data"""
+
 software = {
     1: {
         'title': 'glance',

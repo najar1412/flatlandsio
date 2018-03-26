@@ -82,16 +82,16 @@ def page_not_found(e):
 
 @app.route('/')
 def index():
-    posts = modules.database.to_json(modules.models.Post.query.all())
-    years = modules.database.get_post_years(posts)
+    posts = modules.database.Post().all()
+    years = modules.database.Post().years_from_posts(posts)
 
     return render_template('posts.html', posts=posts, years=years)
 
 
 @app.route('/posts')
 def posts():
-    posts = modules.database.to_json(modules.models.Post.query.all())
-    years = modules.database.get_post_years(posts)
+    posts = modules.database.Post().all()
+    years = modules.database.Post().years_from_posts(posts)
 
     return render_template('posts.html', posts=posts, years=years)
 
@@ -100,7 +100,7 @@ def posts():
 def post(title):
     title = title.replace('-', ' ')
 
-    blog_post = modules.database.to_json((modules.models.Post.query.filter_by(title=title).first(),))[1]
+    blog_post = modules.database.Post().by_title((title,))
     blog_post['content'] = modules.database.markdown_to_html(title)
 
     return render_template('blog_post.html', post=blog_post)
@@ -116,14 +116,14 @@ def post_new():
         admin = modules.models.Post(
             title=form['inputTitle'], author='rory jarrel', 
             published=False, content=post, 
-            pub_date=modules.database.date_format(), tags='', strap=''
+            pub_date=modules.database.date_today_as_ddmmyy(), tags='', strap=''
         )
 
         modules.models.db.session.add(admin)
         modules.models.db.session.commit()
 
-    posts = modules.database.to_json(modules.models.Post.query.all())
-    years = modules.database.get_post_years(posts)
+    posts = modules.database.Post().all()
+    years = modules.database.Post().years_from_posts(posts)
 
     return render_template('settings.html', posts=posts, years=years)
 
@@ -132,7 +132,7 @@ def post_new():
 def post_edit(title):
     if request.method == 'GET':
         title = title.replace('-', ' ')
-        post = modules.database.to_json((modules.models.Post.query.filter_by(title=title).first(),))[1]
+        post = modules.database.Post().by_title((title,))
         post['content'] = modules.database.markdown_to_string(f"{post['title'].replace(' ', '-')}.md")
 
         return render_template('post_edit.html', post=post)
@@ -140,7 +140,7 @@ def post_edit(title):
 
     if request.method == 'POST':
         form = modules.database.form_to_dict(request.form)
-        modules.database.edit_post(form, title)
+        modules.database.Post().edit(form, title)
         title = form['inputTitle'].replace(' ', '-')
 
         return redirect(f'/post/{title}')
@@ -174,17 +174,17 @@ def post_delete(title):
     else:
         print('markdown file not deleted')
 
-    posts = modules.database.to_json(modules.models.Post.query.all())
-    years = modules.database.get_post_years(posts)
+    posts = modules.database.Post().all()
+    years = modules.database.Post().years_from_posts(posts)
 
     return render_template('settings.html', posts=posts, years=years)
 
 
 @app.route('/tag/<tag>')
 def tag(tag):
-    all_posts = modules.database.to_json(modules.models.Post.query.all())
-    posts = modules.database.get_post_by_tag(str(tag), all_posts)
-    years = modules.database.get_post_years(posts)
+    all_posts = modules.database.Post().all()
+    posts = modules.database.Post().query_tags(str(tag))
+    years = modules.database.Post().years_from_posts(posts)
 
     return render_template('tag.html', posts=posts, years=years)
 
@@ -220,8 +220,8 @@ def settings():
 @app.route('/login/post')
 @login_required
 def login_post():
-    posts = modules.database.to_json(modules.models.Post.query.all())
-    years = modules.database.get_post_years(posts)
+    posts = modules.database.Post().all()
+    years = modules.database.Post().years_from_posts(posts)
 
     return render_template('login_post.html', posts=posts, years=years)
 

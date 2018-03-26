@@ -3,7 +3,7 @@
 {% include 'login_submenu.html' %}
 
 
-<h1 style="padding-left:10%; color:rgb(242, 242, 242);">new article</h1>
+<h1 style="padding-left:10%; color:rgb(242, 242, 242);">new post</h1>
 <hr>
 
 
@@ -11,7 +11,7 @@
 
         <div class="card">
                 <div class="card-body">
-                        <form class="form-inline" action="/article/new" method="POST">
+                        <form class="form-inline" action="/post/new" method="POST">
                             <div class="form-group">
                                 <label for="newPost"></label>
                                 <input type="text" readonly class="form-control-plaintext" id="newPost" value="New Post">
@@ -27,7 +27,7 @@
     </div>
     
 
-    <h1 style="padding-left:10%; color:rgb(242, 242, 242);">manage articles</h1>
+    <h1 style="padding-left:10%; color:rgb(242, 242, 242);">manage posts</h1>
     <hr>
 
 
@@ -55,13 +55,13 @@
                   <tr class="table-danger">
                 {% endif %}
                         <th scope="row">{{data.id}}</th>
-                        <td><a style="color: black;font-size: 15px;" href="/article/{{data.title.replace(' ', '-')}}">{{data.title}}</a></td>
+                        <td><a style="color: black;font-size: 15px;" href="/post/{{data.title.replace(' ', '-')}}">{{data.title}}</a></td>
                         <td>{{data.tags}}</td>
                         <td>{{data.published}}</td>
                         <td>
-                            <a style="color: black;font-size: 15px;" href="/article/edit/{{data.title.replace(' ', '-')}}">[E]</a>
-                            <a style="color: black;font-size: 15px;" href="/article/publish/{{data.title.replace(' ', '-')}}">[P]</a>
-                            <a style="color: black;font-size: 15px;" href="/article/delete/{{data.title.replace(' ', '-')}}">[D]</a>
+                            <a style="color: black;font-size: 15px;" href="/post/edit/{{data.title.replace(' ', '-')}}">[E]</a>
+                            <a style="color: black;font-size: 15px;" href="/post/publish/{{data.title.replace(' ', '-')}}">[P]</a>
+                            <a style="color: black;font-size: 15px;" href="/post/delete/{{data.title.replace(' ', '-')}}">[D]</a>
                         </td>
                   </tr>
             {% endif %}
