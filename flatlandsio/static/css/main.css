@@ -193,12 +193,6 @@ position:relative;
 .solution small span a:hover{
   text-decoration: none;
 }
-  
-  .solution a {
-  }
-  .solution a:hover {
-  }
-
 
 
 
@@ -266,11 +260,13 @@ position:relative;
 .footer {
   display: flex;
   justify-content: space-around;
+ 
 
 
 }
 .footer-detail {
-
+  width:33%;
+  text-align:center;
 }
 .footer-detail a {
   color: rgb(255, 72, 0);
