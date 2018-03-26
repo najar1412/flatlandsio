@@ -5,6 +5,14 @@
 
 <p style="height:10px;"></p>
 
+<!--
+<div style="color:white;background-color:rgba(1, 1, 1, .05);border-color:rgba(255, 255, 255, .07);border-radius: 5px;margin-left:10%;margin-right:10%;padding:10px;padding-left:20px;border-style: solid;border-width: thin;">
+    with many 
+
+</div>
+!-->
+
+
     {% for type in solution_types %}
     <a name="{{ type }}">
         <div class="section-head">
@@ -16,32 +24,30 @@
     {% if solution.type == type %}
 
     <div class="solution">
-        <div style="display:flex; justify-content:space-between;">
-            <div>
+          
             <h4><a href="#">{{solution.title}}</a></h4>
 
             <small>
-                    source:&emsp;{{solution.code}}<br>
-                </div>
+                   <a href="{{solution.code}}">code</a> | <a href="{{solution.code}}">docs</a><br>
+                
 
-                <div>
-                </div>
-
-                </div>
-
+            
                     tags:&emsp;
                         {% for tag in solution.tags %}
-                        <span class="badge badge-light"><a style="color:black;font-size:10px;" href="/tag/{{tag}}">{{tag}}</a></span>
+                        <span class="badge badge-light"><a style="color:black;" href="/tag/{{tag}}">{{tag}}</a></span>
                         {% endfor %}
                     
-                    </small>
+            </small>
 
 <hr style="background-color:white;">
-           
+<p style="font-weight:900;margin:0; font-size:12px;color:rgba(0, 0, 0, .3);padding-left:0;letter-spacing: 2px;">what...</p>
+
             <h4>{{solution.summary}}</h4>
             <p style="height:20px;"></p>
+
+            <p style="font-weight:900;margin:0; font-size:12px;color:rgba(0, 0, 0, .3);padding-left:0;letter-spacing: 2px;">why...</p>
            <small>
-            {{solution.goal}}
+  {{solution.goal}}
         </small>
 
         <p style="height:10px;"></p>

@@ -185,7 +185,14 @@ position:relative;
     color: white;
     font-style: italic;
   }
-  
+
+  .solution small span a {
+    color:black;
+    font-weight: 300;
+  }
+.solution small span a:hover{
+  text-decoration: none;
+}
   
   .solution a {
   }
@@ -303,10 +310,5 @@ position:relative;
 ::-ms-input-placeholder { /* Microsoft Edge */
  color:rgba(255, 255, 255, .7);
 }
-
-
-
-
-
 
 
