@@ -26,7 +26,6 @@ body {
 .header a {
   color: white;
   text-decoration: none;
-  font-weight: 300;
 
 }
 
@@ -39,7 +38,6 @@ body {
 }
 .header-nav a {
   color: white;
-  font-weight: 600;
   text-decoration: none;
 }
 .header-nav a:hover {
@@ -148,6 +146,61 @@ position:relative;
   border-width: 1px;
   border-bottom-style: dotted;
 }
+
+
+
+
+
+
+.solution {
+  position:relative;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 40px;
+  }
+  .solution h4 {
+    font-size:35px;
+    color:white;
+    margin:0;
+  }
+  .solution h4 a {
+    font-size: 40px;
+    font-weight: 300;
+    color: rgb(255, 201, 14);
+    text-decoration: none;
+  }
+  .solution h4 a {
+    font-size: 40px;
+    font-weight: 300;
+    color: rgb(255, 201, 14);
+    text-decoration: none;
+  }
+  .solution small {
+    color: rgb(242, 242, 242);
+  }
+  .solution small a {
+    color: rgb(242, 242, 242);
+  }
+  .solution-strap {
+    color: white;
+    font-style: italic;
+  }
+  
+  
+  .solution a {
+  }
+  .solution a:hover {
+  }
+
+
+
+
+
+
+
+
+
+
 
   /** used for markdown conversion **/
   .post .title {

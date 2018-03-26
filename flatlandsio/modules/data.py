@@ -2,55 +2,38 @@
 
 software = {
     1: {
-        'title': 'glance',
-        'author': 'rory jarrel',
-        'tags': ['library'],
-        'summary': 'solution to the mangement and sharing of 1000s of 3d assets across multiple offices.',
-        'tech': 'python, flask and aws.',
+        'title': 'portal',
+        'author': '',
+        'tags': ['nginx', 'ubuntu', 'postgres', 'python', 'flask', 'aws', 'markdown', 'html', 'css', 'javascript'],
+        'summary': 'artist aimed intranet. suite of tools and services that reduce time to deliver.',
+        'tech': [],
         'code': 'http://github.com/example',
-        'goal': 'glance needed to able to serve visual assets including video, picture 3d geometry to various offices around the global for the production of visualisation renderings. The system needed to incorparate some machine learning to the tune of item detection in both stills and video.',
-        'type': 'web'
+        'goal': 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
+        'type': 'web',
+        'screenshot': ['screenshot01.jpg']
     },
     2: {
-        'title': 'gallery',
-        'author': 'rory jarrel',
-        'tags': ['photo'],
-        'summary': 'personally managed cloud photo galleries.',
-        'tech': 'python, flask, postgresql and aws',
+        'title': 'glance',
+        'author': '',
+        'tags': ['nginx', 'ubuntu', 'postgres', 'python', 'flask', 'aws', 'celery', 'html', 'css', 'javascript', 'machine learning'],
+        'summary': 'automated management of library assets.',
+        'tech': [],
         'code': 'http://github.com/example',
-        'goal': 'This system is aimed at your everyday tourists. A simple system of managing hoilday snaps, that are simple to share with friends and family.',
-        'type': 'web'
+        'goal': 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
+        'type': 'web',
+        'screenshot': ['screenshot01.jpg']
     },
     3: {
-        'title': 'rorender',
-        'author': 'rory jarrel',
-        'tags': ['backburner', 'vray'],
-        'summary': 'A cli tool to allow the user to quicky see which renders nodes are free and avalialbe for distrubuted rendering.',
-        'tech': 'python, cli',
+        'title': 'glanceapp',
+        'author': '',
+        'tags': ['3ds max', 'python', 'maxscript', 'qt', 'pyside', 'maxscript'],
+        'summary': 'gui interface allowing library access to an external web api inside of 3ds max',
+        'tech': [],
         'code': 'http://github.com/example',
-        'goal': 'A cli interface to various render managers within a farm. Tool comes complete with features to enabled/disable different types of render software as well as checking current and recently finished rendering information',
-        'type': 'desktop'
-    },
-    4: {
-        'title': 'copy paste',
-        'author': 'rory jarrel',
-        'tags': ['3ds max', 'python', 'maxscript'],
-        'summary': 'Copy and paste 3d assets',
-        'tech': 'python, maxscript',
-        'code': 'http://github.com/example',
-        'goal': 'extending fucntionality of 3ds max with copy and paste between open 3ds max files.',
-        'type': 'script'
-    },
-    5: {
-        'title': 'auto comp',
-        'author': 'rory jarrel',
-        'tags': ['3ds max', 'vray', 'python', 'nuke'],
-        'summary': 'quick basic composition of render passes',
-        'tech': 'python, flask and aws.',
-        'code': 'http://github.com/example',
-        'goal': 'automates the compositing all standard vray passes, for quick visualisation within Nuke.',
-        'type': 'script'
-    },
+        'goal': 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
+        'type': 'plugin',
+        'screenshot': ['screenshot01.jpg']
+    }
 }
 
 def get_software_by_tag():

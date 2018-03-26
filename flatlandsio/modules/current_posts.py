@@ -32,7 +32,7 @@ def current_posts(db):
                 tags='ubuntu flask nginx letsencrypt digitalocean miguelgrinberg reference',
                 strap='This guide is originally from Miguel Grinberg and Digitalocean. Full credit goes to them, this is just a condensed version for my reference.',
                 content='https-using-letsencrypt-with-nginx-flask-on-ubuntu.md',
-                pub_date='9.11.2017',
+                pub_date='9.03.2018',
                 published=True
             )
             db.session.add(post_02)

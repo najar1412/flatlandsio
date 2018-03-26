@@ -197,6 +197,15 @@ def portfolio():
     return render_template('portfolio.html', software=portfolio, software_types=portfolio_types)
 
 
+@app.route('/solution')
+def solutions():
+    solution_types = modules.database.Solutions().types()
+    solutions = modules.database.Solutions().all()
+
+    return render_template(
+        'solutions.html', solutions=solutions, solution_types=solution_types
+    )
+
 @app.route('/software/<title>')
 def project(title):
     product = data.get_software_by_title(title.replace('-', ' '))

@@ -6,7 +6,9 @@ name = "pypi"
 
 
 [requires]
+
 python_version = '3.6'
+
 
 [packages]
 
@@ -15,6 +17,7 @@ gunicorn = "*"
 flask-sqlalchemy = "*"
 markdown = "*"
 flask-login = "*"
+pylint = "*"
 
 
 [dev-packages]

@@ -6,7 +6,41 @@ import datetime
 import app
 import markdown
 import modules.models
+import modules.data
 import config
+
+
+class Solutions():
+    """fake data"""
+    def _query_solutions(self):
+        return modules.data.software
+
+
+    def _query_types(self):
+        solutions = modules.data.software
+        types = []
+
+        for id, data in solutions.items():
+            types.append(data['type'])
+
+        return list(set(types))
+
+    def all(self):
+        to_json = self._query_solutions()
+
+        return to_json
+
+    def types(self, solutions=None):
+        """gets solution types from database
+        AUG:
+        solutions: iterable
+        return: list"""
+        if solutions:
+            # return types found in these solutions
+            pass
+
+        else:
+            return self._query_types()
 
 
 class Post():

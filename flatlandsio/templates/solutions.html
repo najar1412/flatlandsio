@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% include 'solution_nav.html' %}
+
+<p style="height:10px;"></p>
+
+    {% for type in solution_types %}
+    <a name="{{ type }}">
+        <div class="section-head">
+            <h4>{{ type }}</h4>
+        </div>
+    </a>
+
+    {% for id, solution in solutions.items() %}
+    {% if solution.type == type %}
+
+    <div class="solution">
+        <div style="display:flex; justify-content:space-between;">
+            <div>
+            <h4><a href="#">{{solution.title}}</a></h4>
+
+            <small>
+                    source:&emsp;{{solution.code}}<br>
+                </div>
+
+                <div>
+                </div>
+
+                </div>
+
+                    tags:&emsp;
+                        {% for tag in solution.tags %}
+                        <span class="badge badge-light"><a style="color:black;font-size:10px;" href="/tag/{{tag}}">{{tag}}</a></span>
+                        {% endfor %}
+                    
+                    </small>
+
+<hr style="background-color:white;">
+           
+            <h4>{{solution.summary}}</h4>
+            <p style="height:20px;"></p>
+           <small>
+            {{solution.goal}}
+        </small>
+
+        <p style="height:10px;"></p>
+</div>
+<p style="height:20px;"></p>
+    {% endif %}
+
+    {% endfor %}
+    {% endfor %}
+
+
+
+
+
+{% endblock %}
