@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template, request, redirect, abort, Response, session
 from flask_login import LoginManager, login_required, login_user, logout_user
 
+import config
 import modules.data as data
 import modules.database
 import modules.models
@@ -80,12 +81,36 @@ def page_not_found(e):
     return render_template('error/404.html'), 404
 
 
+@app.route('/firsttimerun', methods=["GET", "POST"])
+def firsttimerun():
+    print('first time')
+    if config.FIRST_TIME_RUN:
+            email = request.args.get('username', None)
+            password = request.args.get('password', None)
+
+            if email and password:
+                modules.database.User().new(email=email, password=password)
+                config.FIRST_TIME_RUN = False
+
+            else:
+                pass
+
+    return redirect('/')
+
+
 @app.route('/')
 def index():
-    posts = modules.database.Post().all()
-    years = modules.database.Post().years_from_posts(posts)
+    if config.FIRST_TIME_RUN:
+        # TODO: secondry first time run check, any users in database
+        # needed to avoid the firsttimerun screen after server resets
+        return render_template('first_time_run.html')
 
-    return render_template('posts.html', posts=posts, years=years)
+    else:
+        posts = modules.database.Post().all()
+        years = modules.database.Post().years_from_posts(posts)
+
+        return render_template('posts.html', posts=posts, years=years)
+    
 
 
 @app.route('/posts')

@@ -9,6 +9,16 @@ import modules.models
 import modules.data
 import config
 
+class User():
+    """handles all database interations related to Users"""
+    def new(self, email, password):
+        user = modules.models.User(username=email, password=password)
+
+        modules.models.db.session.add(user)
+        modules.models.db.session.commit()
+
+        return True
+
 
 class Solutions():
     """fake data"""
@@ -77,11 +87,14 @@ class Post():
     def all(self):
         return self.to_json(self._retrive_posts())
 
+
     def all_published(self):
         return self.to_json(self._retrive_posts(published=True))
 
+
     def by_title(self, title):
         return self.to_json((self._retrive_post_by_title(title),))
+
 
     def years_from_posts(self, posts):
         """returns sorted list of all years related to `posts`
