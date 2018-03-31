@@ -41,9 +41,11 @@ body {
   text-decoration: none;
 }
 .header-nav a:hover {
-  color: rgb(255, 201, 14);
   border-width: 1px;
   border-bottom-style: dotted;
+}
+.header-nav a:visited {
+  color: white;
 }
 .col {
   margin: 0;
@@ -116,7 +118,14 @@ position:relative;
   padding-bottom: 40px;
 }
 .blog-post h4 {
-
+}
+.blog-post h4 a:hover{
+  color:rgb(255, 201, 14);
+  text-decoration: none;
+}
+.blog-post h4 a:visited{
+  color:rgb(255, 201, 14);
+  text-decoration: none;
 }
 .blog-post small {
   color: rgb(242, 242, 242);
@@ -129,6 +138,7 @@ position:relative;
   color:rgb(255, 201, 14);
   text-decoration: none;
 }
+
 .blog-post-strap {
   color: white;
   font-style: italic;
@@ -265,7 +275,7 @@ position:relative;
 
 }
 .footer-detail {
-  width:33%;
+  max-width:600px;
   text-align:center;
 }
 .footer-detail a {

@@ -2,36 +2,14 @@
 
 software = {
     1: {
-        'title': 'portal',
+        'title': 'devgear',
         'author': '',
-        'tags': ['nginx', 'ubuntu', 'postgres', 'python', 'flask', 'aws', 'markdown', 'html', 'css', 'javascript'],
-        'summary': 'artist aimed intranet. suite of tools and services that reduce time to deliver.',
+        'tags': [],
+        'summary': 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.',
         'tech': [],
-        'code': 'http://github.com/example',
+        'code': 'https://github.com/flatlands/devgear',
         'goal': 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
         'type': 'web',
-        'screenshot': ['screenshot01.jpg']
-    },
-    2: {
-        'title': 'glance',
-        'author': '',
-        'tags': ['nginx', 'ubuntu', 'postgres', 'python', 'flask', 'aws', 'celery', 'html', 'css', 'javascript', 'machine learning'],
-        'summary': 'automated management of library assets.',
-        'tech': [],
-        'code': 'http://github.com/example',
-        'goal': 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
-        'type': 'web',
-        'screenshot': ['screenshot01.jpg']
-    },
-    3: {
-        'title': 'glanceapp',
-        'author': '',
-        'tags': ['3ds max', 'python', 'maxscript', 'qt', 'pyside', 'maxscript'],
-        'summary': 'gui interface allowing library access to an external web api inside of 3ds max',
-        'tech': [],
-        'code': 'http://github.com/example',
-        'goal': 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.',
-        'type': 'plugin',
         'screenshot': ['screenshot01.jpg']
     }
 }
