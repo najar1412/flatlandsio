@@ -90,7 +90,7 @@ def index():
 
 @app.route('/posts')
 def posts():
-    posts = modules.database.Post().all()
+    posts = modules.database.Post().all_published()
     years = modules.database.Post().years_from_posts(posts)
 
     return render_template('posts.html', posts=posts, years=years)

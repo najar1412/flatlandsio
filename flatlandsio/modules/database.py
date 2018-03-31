@@ -45,8 +45,12 @@ class Solutions():
 
 class Post():
     """handles all database interaction related to Posts"""
-    def _retrive_posts(self):
-        return modules.models.Post.query.all()
+    def _retrive_posts(self, published=None):
+        if published == None:
+            return modules.models.Post.query.all()
+
+        else:
+            return modules.models.Post.query.filter_by(published=published).all()
 
 
     def _retrive_post_by_title(self, title):
@@ -73,6 +77,8 @@ class Post():
     def all(self):
         return self.to_json(self._retrive_posts())
 
+    def all_published(self):
+        return self.to_json(self._retrive_posts(published=True))
 
     def by_title(self, title):
         return self.to_json((self._retrive_post_by_title(title),))
