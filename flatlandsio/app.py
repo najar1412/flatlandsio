@@ -80,7 +80,8 @@ def page_not_found(e):
 def page_not_found(e):
     return render_template('error/404.html'), 404
 
-
+# TODO: i think its better to run 'firsttimerun' process during the install layer of the app
+# disabled in confg by default. refactor.
 @app.route('/firsttimerun', methods=["GET", "POST"])
 def firsttimerun():
     print('first time')

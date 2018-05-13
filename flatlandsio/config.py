@@ -11,4 +11,4 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 SQLALCHEMY_DATABASE_URI = 'sqlite:///flatlands.db'
 
 # flatlands
-FIRST_TIME_RUN = True
+FIRST_TIME_RUN = False
